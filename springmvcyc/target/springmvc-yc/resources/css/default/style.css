@@ -1,0 +1,195 @@
+body {
+	padding: 60px 0px 0px 0px !important;
+	font-family: Microsoft YaHei;
+}
+.navbar-brand{
+	color:#f2f2f2 !important;
+	font-size: 28px;
+}
+a.navbar-brand:HOVER{
+	color:#ffffff!important;
+
+}
+.navbar-brand img.logo {
+	height: 25px;
+}
+
+@media ( min-width : 768px) {
+	body {
+		padding: 122px 0px 0px 0px !important;
+	}
+	.navbar-brand img.logo {
+		height: 35px;
+	}
+}
+
+.breadcrumb>li.title {
+	margin: 0 15px 0 5px;
+	color: gray;
+	font-weight: bold;
+}
+
+.dropdown-menu>li>a>strong {
+	color: #777;
+}
+
+.myfile .media-heading{
+	margin: 0;
+}
+.myfile p{
+	margin: 0;
+}
+.myfile p.date{
+	color: gray;
+}
+/* easyui  
+---------------------------------------------------------------------*/
+.easyui-validatebox, .easyui-blank {
+	border: #DDD solid 1px;
+	padding: 2px 4px;
+	font-size: 14px;
+}
+.easyuidlg .form-group label {
+	display: inline-block;
+	width: 20%;
+	text-align: right;
+}
+.easyuidlg .form-group .easyui-validatebox,.easyuidlg .form-group .easyui-blank,
+.easyuidlg .form-group .block {
+	width: 75%;
+	display: inline-block;
+}
+
+.small_easyui_dlg{
+	width: 300px;
+	max-height: 470px;
+}
+@media ( min-width : 768px) {
+.small_easyui_dlg{
+	width: 400px;
+}
+}
+.col1 {
+	float: left;
+	width: 88%;
+}
+
+.col2 {
+	float: left;
+	width: 44%;
+}
+
+.col3 {
+	float: left;
+	width: 30%;
+}
+
+.form_btn {
+	height: 30px;
+	text-align: center;
+}
+
+.form_item {
+	margin: 10px 10px 0px 20px;
+}
+
+.form_item input[type="text"] {
+	/**width: 150px;*/
+	
+}
+
+
+
+.form_item label {
+	display: inline-block;
+	_display: inline;
+	_zoom: 1;
+	width: 80px;
+}
+
+
+.form_item form {
+	display: inline-block;
+	_display: inline;
+	_zoom: 1;
+	margin: 0;
+}
+
+.form_item .red {
+	color: red;
+}
+
+.red {
+	color: red;
+}
+
+.pathinfo {
+	overflow: hidden;
+	white-space: nowrap;
+	word-wrap: normal;
+	text-overflow: ellipsis;
+}
+
+/**fieldset*/
+fieldset {
+	padding: 0px 10px 10px 10px;
+	margin: 10px 0;
+	color: #333;
+	border: #aaa dashed 1px;
+}
+
+legend {
+	color: #0E2D5F;
+	font-weight: 800;
+	padding: 3px 6px;
+	margin: 10px 30px 10px 0;
+}
+
+#toolbar hr {
+	height: 0px;
+	border: none;
+	border-top: 1px solid #DDD;
+	border-bottom: 1px solid #FFF;
+	margin: 6px 0px;
+}
+
+.line {
+	color: #BBBBBB;
+}
+
+
+
+span.spbtn {
+	cursor: hand;
+	cursor: pointer;
+	color: blue;
+}
+.fieldset{
+	border-width: 1px; 
+	border-color: #2973C8;
+	width:360px;
+	height:147.5px;
+}
+.ws-asterisk {
+	color: red;
+	font-weight: bolder;
+}
+.ws-checkbox-inline, .ws-radio-inline {
+    position: relative;
+    display: inline-block;
+    padding-left: 20px;
+    padding-bottom:1px;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.ws-checkbox-inline:last-of-type,.ws-radio-inline:last-of-type{
+	margin-right: 0px;
+}
+.ws-checkbox-inline input[type=checkbox],.ws-radio-inline input[type=radio]{
+	position: absolute;
+    margin-top: 4px\9;
+    margin-left: -20px;
+}
