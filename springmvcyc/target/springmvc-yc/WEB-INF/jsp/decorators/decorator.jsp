@@ -1,11 +1,6 @@
-
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<spring:theme code="css" var="css" />
-<%--<spring:theme code="easyuitheme" var="easyuitheme" />
-<spring:theme code="js" var="js" />
-<spring:theme code="easyuiver" var="easyuiver" />--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -20,52 +15,30 @@
     <%--<meta name="_csrf" content="${_csrf.token}"/>
     <meta name="_csrf_header" content="${_csrf.headerName}"/>--%>
     <title><sitemesh:write property='title' /></title>
-    <script src="<spring:url value="${js}/jquery.min.js"/>"></script>
-    <script src="<spring:url value="${js}/sys.beforeParser.js"/>"></script>
-    <link href="<spring:url value="${css}/bootstrap.min.css"/>"
+    <script src="<spring:url value="/resources/js/jquery.min.js"/>"></script>
+    <link href="<spring:url value="/resources/css/default/bootstrap.min.css"/>"
           rel="stylesheet">
-    <link href="<spring:url value="${css}/bootstrap-submenu.min.css"/>"
+    <link href="<spring:url value="/resources/css/default/bootstrap-submenu.min.css"/>"
           rel="stylesheet">
     <link rel="stylesheet" type="text/css"
-          href="<spring:url value="${css}/style.css"/>">
+          href="<spring:url value="/resources/css/default/style.css"/>">
     <link rel="stylesheet" type="text/css"
-          href="<spring:url value="${easyuitheme}/easyui.css"/>">
+          href="<spring:url value="/resources/js/jquery-easyui-1.5.3/themes/default/easyui.css"/>">
     <link rel="stylesheet" type="text/css"
-          href="<spring:url value="${js}/easyui-icons/icon.css"/>">
-    <link href="<spring:url value="${css}/multi-select.css"/>"
+          href="<spring:url value="/resources/js/easyui-icons/icon.css"/>">
+    <link href="<spring:url value="/resources/css/default/multi-select.css"/>"
           rel="stylesheet">
     <sitemesh:write property='head'/>
-    <style type="text/css">
-        @media ( min-width : 768px) {
-            /*原来body上面留白：padding: 20px 0px 0px 0px !important;*/
-            body {
-                padding: 0px 0px 0px 0px !important;
-            }
-            .navbar-brand img.logo {
-                height: 35px;
-            }
-            /*body里面的container样式，左右不留白*/
-            body > .container {
-                width: auto !important;
-                padding-right: -15px !important;
-                padding-left: -15px !important;
-                margin-right:-15px !important;
-                margin-left: -15px !important;
-            }
-        }
-    </style>
 </head>
 <body>
     <sitemesh:write property='body' />
 </body>
-<script src="<spring:url value="${js}/bootstrap/bootstrap.min.js"/>"></script>
-<script src="<spring:url value="${js}/hack/ie10-viewport-bug-workaround.js"/>"></script>
-<script src="<spring:url value="${easyuiver}/jquery.easyui.min.js"/>"></script>
-<script src="<spring:url value="${easyuiver}/locale/easyui-lang-zh_CN.js"/>"></script>
-<script src="<spring:url value="${easyuiver}/easyloader.js"/>"></script>
-<script src="<spring:url value="${js}/sys.common.js"/>"></script>
-<script src="<spring:url value="${js}/validatebox_extend_rules.js"/>"></script>
-<script src="<spring:url value="${js}/jquery.multi-select.js"/>"></script>
-<script src="<spring:url value="${js}/moment.js"/>"></script>
+<script src="<spring:url value="/resources/js/bootstrap/bootstrap.min.js"/>"></script>
+<script src="<spring:url value="/resources/js/hack/ie10-viewport-bug-workaround.js"/>"></script>
+<script src="<spring:url value="/resources/js/jquery-easyui-1.5.3/jquery.easyui.min.js"/>"></script>
+<script src="<spring:url value="/resources/js/jquery-easyui-1.5.3/locale/easyui-lang-zh_CN.js"/>"></script>
+<script src="<spring:url value="/resources/js/jquery-easyui-1.5.3/easyloader.js"/>"></script>
+<script src="<spring:url value="/resources/js/jquery.multi-select.js"/>"></script>
+<script src="<spring:url value="/resources/js/moment.js"/>"></script>
 <sitemesh:write property='script' />
 </html>

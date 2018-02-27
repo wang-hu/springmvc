@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:cache="http://www.springframework.org/schema/cache" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="
 http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
@@ -14,6 +15,61 @@ http://www.springframework.org/schema/aop
 http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 ">
     <beans>
+        <beans>
+            <context:component-scan base-package="yc" />
+            <aop:aspectj-autoproxy expose-proxy="true" />
+            <bean id="propertyConfigurer"
+                  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+                <property name="locations">
+                    <list>
+                        <value>classpath:config.properties</value>
+                    </list>
+                </property>
+            </bean>
 
+            <bean id="messageSource"
+                  class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+                <property name="basenames">
+                    <list>
+                        <value>classpath*:config/*/message</value>
+                        <value>classpath:org/springframework/security/messages</value>
+                    </list>
+                </property>
+            </bean>
+
+            <!--!!!!!!!!!!!!!!!注意spring-data-redis和jedis版本的匹配问题　
+        redis.client  2.9.0 -－ spring-data-redis  1.7.1.RELEASE -->
+            <cache:annotation-driven/>
+            <!-- redis 相关配置 -->
+            <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+                <property name="maxIdle" value="${redis.maxIdle}"/>
+                <property name="maxWaitMillis" value="${redis.maxWait}"/>
+            </bean>
+
+            <bean id="JedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+                  p:host-name="${redis.host}" p:port="${redis.port}" p:password="${redis.pass}" p:pool-config-ref="poolConfig"/>
+
+            <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+                <property name="connectionFactory" ref="JedisConnectionFactory"/>
+            </bean>
+
+            <!-- spring自己的缓存管理器，这里定义了缓存位置名称 ，即注解中的value -->
+            <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+                <property name="caches">
+                    <set>
+                        <!-- 这里可以配置多个redis -->
+                        <!-- <bean class="com.cn.util.RedisCache">
+                             <property name="redisTemplate" ref="redisTemplate" />
+                             <property name="name" value="default"/>
+                        </bean> -->
+                        <!-- <bean class="yc.component.RedisCache">
+                             <property name="redisTemplate" ref="redisTemplate"/>
+                             <property name="name" value="common"/>
+                             &lt;!&ndash; common名称要在类或方法的注解中使用 &ndash;&gt;
+                         </bean>-->
+                    </set>
+                </property>
+            </bean>
+        </beans>
     </beans>
 </beans>

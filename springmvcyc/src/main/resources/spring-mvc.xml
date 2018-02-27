@@ -2,8 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:cache="http://www.springframework.org/schema/cache"
-       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:aop="http://www.springframework.org/schema/aop"
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -12,17 +11,11 @@
                         http://www.springframework.org/schema/context/spring-context-4.0.xsd
                         http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
-                        http://www.springframework.org/schema/cache
-                        http://www.springframework.org/schema/cache/spring-cache-4.2.xsd
                         http://www.springframework.org/schema/aop
                         http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
-    <!-- 自动扫描  @Controller-->
-    <context:component-scan base-package="yc"
-                            resource-pattern="*/web/*.class" />
-    <aop:aspectj-autoproxy expose-proxy="true"/>
     <bean id="propertyConfigurer"
-        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
                 <value>classpath:config.properties</value>
@@ -30,15 +23,10 @@
         </property>
     </bean>
 
-    <bean id="messageSource"
-    class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basenames">
-            <list>
-                <value>classpath*:config/*/message</value>
-                <value>classpath:org/springframework/security/messages</value>
-            </list>
-        </property>
-    </bean>
+    <!-- 自动扫描  @Controller-->
+    <context:component-scan base-package="yc"/><!--包含了<context:annotation-config/>-->
+    <aop:aspectj-autoproxy expose-proxy="true"/>
+
     <!--请求字符串的处理-->
     <mvc:annotation-driven>
         <mvc:message-converters>
@@ -50,6 +38,16 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+    <!-- <mvc:annotation-driven>可以替代                  启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->
+    <!--<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="mappingJacksonHttpMessageConverter"/> &lt;!&ndash; JSON转换器 &ndash;&gt;
+            </list>
+        </property>
+    </bean>-->
+
+
     <!--加载静态资源-->
     <mvc:resources mapping="/resources/**/" location="/resources/"/>
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
@@ -58,14 +56,6 @@
         <property name="supportedMediaTypes">
             <list>
                 <value>application/json;charset=UTF-8</value>
-            </list>
-        </property>
-    </bean>
-    <!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-        <property name="messageConverters">
-            <list>
-                <ref bean="mappingJacksonHttpMessageConverter"/> <!-- JSON转换器 -->
             </list>
         </property>
     </bean>
@@ -85,6 +75,7 @@
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="4096"/>
     </bean>
+
     <!--Spring MVC中通过ThemeSource接口来提供对动态更换样式的支持，并提供了ResourceBundleThemeSource这个具体实现类来提供通
         过properties配置文件对theme中的样式的配置 -->
     <bean
@@ -96,38 +87,5 @@
     <bean id="themeResolver"
           class="org.springframework.web.servlet.theme.SessionThemeResolver">
         <property name="defaultThemeName" value="default"/>
-    </bean>
-    <!--!!!!!!!!!!!!!!!注意spring-data-redis和jedis版本的匹配问题　
-        redis.client  2.9.0 -－ spring-data-redis  1.7.1.RELEASE -->
-    <cache:annotation-driven/>
-    <!-- redis 相关配置 -->
-    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
-        <property name="maxIdle" value="${redis.maxIdle}"/>
-        <property name="maxWaitMillis" value="${redis.maxWait}"/>
-    </bean>
-
-    <bean id="JedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-          p:host-name="${redis.host}" p:port="${redis.port}" p:password="${redis.pass}" p:pool-config-ref="poolConfig"/>
-
-    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
-        <property name="connectionFactory" ref="JedisConnectionFactory"/>
-    </bean>
-
-    <!-- spring自己的缓存管理器，这里定义了缓存位置名称 ，即注解中的value -->
-    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
-        <property name="caches">
-            <set>
-                <!-- 这里可以配置多个redis -->
-                <!-- <bean class="com.cn.util.RedisCache">
-                     <property name="redisTemplate" ref="redisTemplate" />
-                     <property name="name" value="default"/>
-                </bean> -->
-               <!-- <bean class="yc.component.RedisCache">
-                    <property name="redisTemplate" ref="redisTemplate"/>
-                    <property name="name" value="common"/>
-                    &lt;!&ndash; common名称要在类或方法的注解中使用 &ndash;&gt;
-                </bean>-->
-            </set>
-        </property>
     </bean>
 </beans>
