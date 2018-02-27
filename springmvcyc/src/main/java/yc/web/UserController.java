@@ -1,9 +1,11 @@
 package yc.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import yc.domain.User;
+import yc.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,8 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
+    UserService userService;
     @RequestMapping("/user_page")
     public String user_init() {
         return "/yc/user";
@@ -24,7 +28,7 @@ public class UserController {
 
     @RequestMapping("/showUser")
     public @ResponseBody List<User> listUserInfo() {
-        List<User> list = new ArrayList();
+        List<User> list = userService.listUserInfo();
         return new ArrayList(list);
     }
 }
