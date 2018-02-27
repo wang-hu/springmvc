@@ -1,13 +1,14 @@
+
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:theme code="css" var="css" />
-<spring:theme code="easyuitheme" var="easyuitheme" />
+<%--<spring:theme code="easyuitheme" var="easyuitheme" />
 <spring:theme code="js" var="js" />
-<spring:theme code="easyuiver" var="easyuiver" />
+<spring:theme code="easyuiver" var="easyuiver" />--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html ><%--lang="zh-CN"--%>
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -18,8 +19,6 @@
     <meta name="author" content="">
     <%--<meta name="_csrf" content="${_csrf.token}"/>
     <meta name="_csrf_header" content="${_csrf.headerName}"/>--%>
-    <link rel="icon"
-          href="<spring:url value="${applicationScope.app.icon}"/>">
     <title><sitemesh:write property='title' /></title>
     <script src="<spring:url value="${js}/jquery.min.js"/>"></script>
     <script src="<spring:url value="${js}/sys.beforeParser.js"/>"></script>
@@ -56,7 +55,7 @@
         }
     </style>
 </head>
-<body class="<sitemesh:write property='bodyclass' />">
+<body>
     <sitemesh:write property='body' />
 </body>
 <script src="<spring:url value="${js}/bootstrap/bootstrap.min.js"/>"></script>
@@ -68,5 +67,5 @@
 <script src="<spring:url value="${js}/validatebox_extend_rules.js"/>"></script>
 <script src="<spring:url value="${js}/jquery.multi-select.js"/>"></script>
 <script src="<spring:url value="${js}/moment.js"/>"></script>
-<sitemesh:write property='footjs' />
+<sitemesh:write property='script' />
 </html>
