@@ -11,16 +11,6 @@
     <button type="submit">提交</button>
 </form>
 
-<div>
-    <table class="easyui-datagrid" style="width:400px;height:250px"
-           data-options="url:'user/showUser',fitColumns:true,singleSelect:true">
-        <thead>
-        <tr>
-            <th data-options="field:'id',width:100">主键</th>
-            <th data-options="field:'type',width:100">类型</th>
-        </tr>
-        </thead>
-    </table>
-</div>
+
 </body>
 </html>

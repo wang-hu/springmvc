@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="yc.domain.mapper.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="yc.domain.UserInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_idcard" property="userIdcard" jdbcType="VARCHAR" />
+    <result column="user_sex" property="userSex" jdbcType="VARCHAR" />
+    <result column="user_sex_chs" property="userSexChs" jdbcType="VARCHAR" />
+    <result column="user_birthday" property="userBirthday" jdbcType="DATE" />
+    <result column="user_nation" property="userNation" jdbcType="VARCHAR" />
+    <result column="user_nation_chs" property="userNationChs" jdbcType="VARCHAR" />
+    <result column="work_date" property="workDate" jdbcType="DATE" />
+    <result column="entry_system_date" property="entrySystemDate" jdbcType="DATE" />
+    <result column="marriage_status" property="marriageStatus" jdbcType="VARCHAR" />
+    <result column="marriage_status_chs" property="marriageStatusChs" jdbcType="VARCHAR" />
+    <result column="health_status" property="healthStatus" jdbcType="VARCHAR" />
+    <result column="health_status_chs" property="healthStatusChs" jdbcType="VARCHAR" />
+    <result column="native_place" property="nativePlace" jdbcType="VARCHAR" />
+    <result column="birth_place" property="birthPlace" jdbcType="VARCHAR" />
+    <result column="user_political" property="userPolitical" jdbcType="VARCHAR" />
+    <result column="highest_education" property="highestEducation" jdbcType="VARCHAR" />
+    <result column="org_name" property="orgName" jdbcType="VARCHAR" />
+    <result column="org_code" property="orgCode" jdbcType="VARCHAR" />
+    <result column="dept_name" property="deptName" jdbcType="VARCHAR" />
+    <result column="dept_code" property="deptCode" jdbcType="VARCHAR" />
+    <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+    <result column="post_code" property="postCode" jdbcType="VARCHAR" />
+    <result column="post_name" property="postName" jdbcType="VARCHAR" />
+    <result column="job_level" property="jobLevel" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_name, user_idcard, user_sex, user_sex_chs, user_birthday, user_nation, user_nation_chs, 
+    work_date, entry_system_date, marriage_status, marriage_status_chs, health_status, 
+    health_status_chs, native_place, birth_place, user_political, highest_education, 
+    org_name, org_code, dept_name, dept_code, user_code, post_code, post_name, job_level, 
+    phone
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_USERINFO
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from T_USERINFO
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="yc.domain.UserInfo" >
+    insert into T_USERINFO (id, user_name, user_idcard,
+      user_sex, user_sex_chs, user_birthday, 
+      user_nation, user_nation_chs, work_date, 
+      entry_system_date, marriage_status, marriage_status_chs, 
+      health_status, health_status_chs, native_place, 
+      birth_place, user_political, highest_education, 
+      org_name, org_code, dept_name, 
+      dept_code, user_code, post_code, 
+      post_name, job_level, phone
+      )
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userIdcard,jdbcType=VARCHAR}, 
+      #{userSex,jdbcType=VARCHAR}, #{userSexChs,jdbcType=VARCHAR}, #{userBirthday,jdbcType=DATE}, 
+      #{userNation,jdbcType=VARCHAR}, #{userNationChs,jdbcType=VARCHAR}, #{workDate,jdbcType=DATE}, 
+      #{entrySystemDate,jdbcType=DATE}, #{marriageStatus,jdbcType=VARCHAR}, #{marriageStatusChs,jdbcType=VARCHAR}, 
+      #{healthStatus,jdbcType=VARCHAR}, #{healthStatusChs,jdbcType=VARCHAR}, #{nativePlace,jdbcType=VARCHAR}, 
+      #{birthPlace,jdbcType=VARCHAR}, #{userPolitical,jdbcType=VARCHAR}, #{highestEducation,jdbcType=VARCHAR}, 
+      #{orgName,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, 
+      #{deptCode,jdbcType=VARCHAR}, #{userCode,jdbcType=VARCHAR}, #{postCode,jdbcType=VARCHAR}, 
+      #{postName,jdbcType=VARCHAR}, #{jobLevel,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="yc.domain.UserInfo" >
+    insert into T_USERINFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userIdcard != null" >
+        user_idcard,
+      </if>
+      <if test="userSex != null" >
+        user_sex,
+      </if>
+      <if test="userSexChs != null" >
+        user_sex_chs,
+      </if>
+      <if test="userBirthday != null" >
+        user_birthday,
+      </if>
+      <if test="userNation != null" >
+        user_nation,
+      </if>
+      <if test="userNationChs != null" >
+        user_nation_chs,
+      </if>
+      <if test="workDate != null" >
+        work_date,
+      </if>
+      <if test="entrySystemDate != null" >
+        entry_system_date,
+      </if>
+      <if test="marriageStatus != null" >
+        marriage_status,
+      </if>
+      <if test="marriageStatusChs != null" >
+        marriage_status_chs,
+      </if>
+      <if test="healthStatus != null" >
+        health_status,
+      </if>
+      <if test="healthStatusChs != null" >
+        health_status_chs,
+      </if>
+      <if test="nativePlace != null" >
+        native_place,
+      </if>
+      <if test="birthPlace != null" >
+        birth_place,
+      </if>
+      <if test="userPolitical != null" >
+        user_political,
+      </if>
+      <if test="highestEducation != null" >
+        highest_education,
+      </if>
+      <if test="orgName != null" >
+        org_name,
+      </if>
+      <if test="orgCode != null" >
+        org_code,
+      </if>
+      <if test="deptName != null" >
+        dept_name,
+      </if>
+      <if test="deptCode != null" >
+        dept_code,
+      </if>
+      <if test="userCode != null" >
+        user_code,
+      </if>
+      <if test="postCode != null" >
+        post_code,
+      </if>
+      <if test="postName != null" >
+        post_name,
+      </if>
+      <if test="jobLevel != null" >
+        job_level,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userIdcard != null" >
+        #{userIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userSexChs != null" >
+        #{userSexChs,jdbcType=VARCHAR},
+      </if>
+      <if test="userBirthday != null" >
+        #{userBirthday,jdbcType=DATE},
+      </if>
+      <if test="userNation != null" >
+        #{userNation,jdbcType=VARCHAR},
+      </if>
+      <if test="userNationChs != null" >
+        #{userNationChs,jdbcType=VARCHAR},
+      </if>
+      <if test="workDate != null" >
+        #{workDate,jdbcType=DATE},
+      </if>
+      <if test="entrySystemDate != null" >
+        #{entrySystemDate,jdbcType=DATE},
+      </if>
+      <if test="marriageStatus != null" >
+        #{marriageStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="marriageStatusChs != null" >
+        #{marriageStatusChs,jdbcType=VARCHAR},
+      </if>
+      <if test="healthStatus != null" >
+        #{healthStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="healthStatusChs != null" >
+        #{healthStatusChs,jdbcType=VARCHAR},
+      </if>
+      <if test="nativePlace != null" >
+        #{nativePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="birthPlace != null" >
+        #{birthPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="userPolitical != null" >
+        #{userPolitical,jdbcType=VARCHAR},
+      </if>
+      <if test="highestEducation != null" >
+        #{highestEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null" >
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptCode != null" >
+        #{deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null" >
+        #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="postName != null" >
+        #{postName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobLevel != null" >
+        #{jobLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="yc.domain.UserInfo" >
+    update T_USERINFO
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userIdcard != null" >
+        user_idcard = #{userIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        user_sex = #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userSexChs != null" >
+        user_sex_chs = #{userSexChs,jdbcType=VARCHAR},
+      </if>
+      <if test="userBirthday != null" >
+        user_birthday = #{userBirthday,jdbcType=DATE},
+      </if>
+      <if test="userNation != null" >
+        user_nation = #{userNation,jdbcType=VARCHAR},
+      </if>
+      <if test="userNationChs != null" >
+        user_nation_chs = #{userNationChs,jdbcType=VARCHAR},
+      </if>
+      <if test="workDate != null" >
+        work_date = #{workDate,jdbcType=DATE},
+      </if>
+      <if test="entrySystemDate != null" >
+        entry_system_date = #{entrySystemDate,jdbcType=DATE},
+      </if>
+      <if test="marriageStatus != null" >
+        marriage_status = #{marriageStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="marriageStatusChs != null" >
+        marriage_status_chs = #{marriageStatusChs,jdbcType=VARCHAR},
+      </if>
+      <if test="healthStatus != null" >
+        health_status = #{healthStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="healthStatusChs != null" >
+        health_status_chs = #{healthStatusChs,jdbcType=VARCHAR},
+      </if>
+      <if test="nativePlace != null" >
+        native_place = #{nativePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="birthPlace != null" >
+        birth_place = #{birthPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="userPolitical != null" >
+        user_political = #{userPolitical,jdbcType=VARCHAR},
+      </if>
+      <if test="highestEducation != null" >
+        highest_education = #{highestEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        org_name = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        org_code = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null" >
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptCode != null" >
+        dept_code = #{deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null" >
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null" >
+        post_code = #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="postName != null" >
+        post_name = #{postName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobLevel != null" >
+        job_level = #{jobLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="yc.domain.UserInfo" >
+    update T_USERINFO
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_idcard = #{userIdcard,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=VARCHAR},
+      user_sex_chs = #{userSexChs,jdbcType=VARCHAR},
+      user_birthday = #{userBirthday,jdbcType=DATE},
+      user_nation = #{userNation,jdbcType=VARCHAR},
+      user_nation_chs = #{userNationChs,jdbcType=VARCHAR},
+      work_date = #{workDate,jdbcType=DATE},
+      entry_system_date = #{entrySystemDate,jdbcType=DATE},
+      marriage_status = #{marriageStatus,jdbcType=VARCHAR},
+      marriage_status_chs = #{marriageStatusChs,jdbcType=VARCHAR},
+      health_status = #{healthStatus,jdbcType=VARCHAR},
+      health_status_chs = #{healthStatusChs,jdbcType=VARCHAR},
+      native_place = #{nativePlace,jdbcType=VARCHAR},
+      birth_place = #{birthPlace,jdbcType=VARCHAR},
+      user_political = #{userPolitical,jdbcType=VARCHAR},
+      highest_education = #{highestEducation,jdbcType=VARCHAR},
+      org_name = #{orgName,jdbcType=VARCHAR},
+      org_code = #{orgCode,jdbcType=VARCHAR},
+      dept_name = #{deptName,jdbcType=VARCHAR},
+      dept_code = #{deptCode,jdbcType=VARCHAR},
+      user_code = #{userCode,jdbcType=VARCHAR},
+      post_code = #{postCode,jdbcType=VARCHAR},
+      post_name = #{postName,jdbcType=VARCHAR},
+      job_level = #{jobLevel,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="yc.domain.mapper.MenuMapper" >
+  <resultMap id="BaseResultMap" type="yc.domain.Menu" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="menu_name" property="text" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="menu_order" property="menuOrder" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="checked" property="checked" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, menu_name, url, menu_order, parent_id, checked
+  </sql>
+  <select id="listMenuByParentId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_MENU
+    where parent_id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from T_MENU
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="yc.domain.Menu" >
+    insert into T_MENU (ID, menu_name, url, 
+      menu_order, parent_id, checked
+      )
+    values (#{id,jdbcType=INTEGER}, #{text,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR},
+      #{menuOrder,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{checked,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="yc.domain.Menu" >
+    insert into T_MENU
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="text != null" >
+        menu_name,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="menuOrder != null" >
+        menu_order,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="checked != null" >
+        checked,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="text != null" >
+        #{text,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOrder != null" >
+        #{menuOrder,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="checked != null" >
+        #{checked,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="yc.domain.Menu" >
+    update T_MENU
+    <set >
+      <if test="text != null" >
+        menu_name = #{text,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="menuOrder != null" >
+        menu_order = #{menuOrder,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="checked != null" >
+        checked = #{checked,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="yc.domain.Menu" >
+    update T_MENU
+    set menu_name = #{text,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      menu_order = #{menuOrder,jdbcType=INTEGER},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      checked = #{checked,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

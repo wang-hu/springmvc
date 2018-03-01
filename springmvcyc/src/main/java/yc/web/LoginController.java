@@ -13,6 +13,6 @@ public class LoginController {
 
     @RequestMapping("/login")
     public String login_init() {
-        return "/index";
+        return "/yc/sys/menu";
     }
 }

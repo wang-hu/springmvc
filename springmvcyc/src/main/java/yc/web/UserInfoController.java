@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import yc.domain.User;
-import yc.service.UserService;
+import yc.domain.UserInfo;
+import yc.service.UserInfoService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,19 +16,19 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserInfoController {
 
     @Autowired
-    UserService userService;
+    UserInfoService userInfoService;
     @RequestMapping("/user_page")
     public String user_init() {
-        return "/yc/user";
+        return "yc/user/user";
     }
 
 
     @RequestMapping("/showUser")
-    public @ResponseBody List<User> listUserInfo() {
-        List<User> list = userService.listUserInfo();
-        return new ArrayList(list);
+    public @ResponseBody List<UserInfo> listUserInfo() {
+        //List<UserInfo> list = userService.listUserInfo();
+        return new ArrayList(null);
     }
 }
