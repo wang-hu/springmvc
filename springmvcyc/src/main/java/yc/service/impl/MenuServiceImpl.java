@@ -27,28 +27,21 @@ public class MenuServiceImpl implements MenuService {
     public List<Menu> listMenuByParentId(Integer id) {
         List<Menu> menuLst = menuMapper.listMenuByParentId(0);
         List<Menu> menuList = new ArrayList<>();
-        menuList = getMenus(menuList,menuLst);
+        menuList = getMenus(menuLst, menuList);
         return menuList;
     }
 
-    private List<Menu> getMenus(List<Menu> menuList,List<Menu> menuLst) {
-        List<Menu> menuChildren = null;
-
-        if(menuLst.size() > 0) {
-            for (Menu menu1 : menuLst) {
-                Menu menu = new Menu();
-                Integer id1 = menu1.getId();
-                menu.setId(id1);
-                menu.setText(menu1.getText());
-                menuChildren = menuMapper.listMenuByParentId(id1);
-                menu.setChildren(menuChildren);
-                menuList.add(menu);
-                if(menuChildren.size() > 0) {
-                    return getMenus(menuList,menuChildren);
-                }
-
+    private List<Menu> getMenus(List<Menu> menuLst, List<Menu> menuList) {
+        for (Menu menu1 : menuLst) {
+            List<Menu> menuChildren = menuMapper.listMenuByParentId(menu1.getId());
+            menu1.setChildren(menuChildren);
+            if (menu1.getParentId() == 0) {
+                menuList.add(menu1);
             }
+            if(menuChildren.size() > 0)
+                getMenus(menuChildren, menuList);
         }
         return menuList;
     }
+
 }
