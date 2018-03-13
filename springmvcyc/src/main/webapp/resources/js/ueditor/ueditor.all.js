@@ -3304,10 +3304,10 @@ var domUtils = dom.domUtils = {
      * <script>
      *
      *     var testNode = UE.dom.domUtils.setAttributes( document.getElementById( "test" ), {
-     *         id: 'demo'
+     *         id: 'example'
      *     } );
      *
-     *     //output: demo
+     *     //output: example
      *     console.log( testNode.id );
      *
      * </script>
