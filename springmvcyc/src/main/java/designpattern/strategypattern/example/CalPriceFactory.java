@@ -1,9 +1,8 @@
-package demo.strategyDemo.example;
+package designpattern.strategypattern.example;
 
 import org.springframework.util.StringUtils;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.lang.annotation.Annotation;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import java.util.List;
  * @create in 18-3-13 下午3:37
  */
 public class CalPriceFactory {
-    private static final String CAL_PRICE_PACKAGE = "demo.strategyDemo.example";//这里是一个常量，表示我们扫描策略的包
+    private static final String CAL_PRICE_PACKAGE = "designpattern.strategypattern.example";//这里是一个常量，表示我们扫描策略的包
 
     private ClassLoader classLoader = getClass().getClassLoader();
 
@@ -53,20 +52,6 @@ public class CalPriceFactory {
         return null;
 
     }
-
-    //单例
-    private CalPriceFactory() {
-        initObj();
-    }
-
-    public static CalPriceFactory getInstance() {
-        return calPriceFactoryInstance.calPriceFactory;
-    }
-
-    private static class calPriceFactoryInstance {
-        private static CalPriceFactory calPriceFactory = new CalPriceFactory();
-    }
-
 
     //在工厂初始化的时候要初始化策略列表
     private void initObj() {
@@ -109,5 +94,19 @@ public class CalPriceFactory {
         } catch (URISyntaxException e) {
             throw new RuntimeException("未找到策略资源");
         }
+    }
+
+
+    //单例实现
+    private CalPriceFactory() {
+        initObj();
+    }
+
+    public static CalPriceFactory getInstance() {
+        return calPriceFactoryInstance.calPriceFactory;
+    }
+
+    private static class calPriceFactoryInstance {
+        private static CalPriceFactory calPriceFactory = new CalPriceFactory();
     }
 }

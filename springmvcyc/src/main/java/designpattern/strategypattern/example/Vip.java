@@ -1,4 +1,4 @@
-package demo.strategyDemo.example;/**
+package designpattern.strategypattern.example;/**
  * @author:wh
  * @date:create in 18-3-13 下午3:10
  */
@@ -8,10 +8,10 @@ package demo.strategyDemo.example;/**
  * @author:wh
  * @create in 18-3-13 下午3:10    
  */
-@PriceRegion(max = 42000)
-public class GoldVip implements CalPrice{
+@PriceRegion(max = 20000)
+public class Vip implements CalPrice {
     @Override
     public Double calPrice(Double price) {
-        return price * 0.7;
+        return price * 0.9;
     }
 }

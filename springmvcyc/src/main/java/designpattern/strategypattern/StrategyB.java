@@ -1,4 +1,4 @@
-package demo.strategyDemo;
+package designpattern.strategypattern;
 
 import org.apache.log4j.Logger;
 
@@ -13,6 +13,7 @@ public class StrategyB implements Strategy {
 
     @Override
     public void testStrategy() {
-        logger.info("this is a StrategyB");
+        //logger.info("this is a StrategyB");
+        System.out.println("this is a StrategyB");
     }
 }

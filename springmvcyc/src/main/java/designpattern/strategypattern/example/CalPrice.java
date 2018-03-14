@@ -1,4 +1,4 @@
-package demo.strategyDemo.example;
+package designpattern.strategypattern.example;
 
 /**
  * @author:wh

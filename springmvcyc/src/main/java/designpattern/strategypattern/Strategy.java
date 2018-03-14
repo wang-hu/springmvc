@@ -1,4 +1,4 @@
-package demo.strategyDemo;
+package designpattern.strategypattern;
 
 /**
  * 策略接口

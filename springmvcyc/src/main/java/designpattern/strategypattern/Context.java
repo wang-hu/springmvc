@@ -1,4 +1,4 @@
-package demo.strategyDemo;/**
+package designpattern.strategypattern;/**
  * @author:wh
  * @date:create in 18-3-13 下午2:30
  */

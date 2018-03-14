@@ -1,4 +1,4 @@
-package demo.strategyDemo.example;
+package designpattern.strategypattern.example;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

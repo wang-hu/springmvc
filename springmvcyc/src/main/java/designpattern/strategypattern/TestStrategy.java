@@ -1,4 +1,4 @@
-package demo.strategyDemo;
+package designpattern.strategypattern;
 
 /**
  * 测试策略模式
