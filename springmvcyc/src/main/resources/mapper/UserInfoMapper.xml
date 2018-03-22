@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="yc.domain.mapper.UserInfoMapper" >
-  <resultMap id="BaseResultMap" type="yc.domain.UserInfo" >
+<mapper namespace="com.shuyang.yc.domain.mapper.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.shuyang.yc.domain.UserInfo" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="user_idcard" property="userIdcard" jdbcType="VARCHAR" />
@@ -47,7 +47,7 @@
     delete from T_USERINFO
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="yc.domain.UserInfo" >
+  <insert id="insert" parameterType="com.shuyang.yc.domain.UserInfo" >
     insert into T_USERINFO (id, user_name, user_idcard,
       user_sex, user_sex_chs, user_birthday, 
       user_nation, user_nation_chs, work_date, 
@@ -69,7 +69,7 @@
       #{postName,jdbcType=VARCHAR}, #{jobLevel,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="yc.domain.UserInfo" >
+  <insert id="insertSelective" parameterType="com.shuyang.yc.domain.UserInfo" >
     insert into T_USERINFO
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -238,7 +238,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="yc.domain.UserInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.shuyang.yc.domain.UserInfo" >
     update T_USERINFO
     <set >
       <if test="userName != null" >
@@ -322,7 +322,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="yc.domain.UserInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.shuyang.yc.domain.UserInfo" >
     update T_USERINFO
     set user_name = #{userName,jdbcType=VARCHAR},
       user_idcard = #{userIdcard,jdbcType=VARCHAR},

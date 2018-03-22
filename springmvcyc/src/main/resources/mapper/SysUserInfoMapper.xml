@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shuyang.sys.domain.mapper.SysUserInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.shuyang.sys.domain.SysUserInfo" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NICK_NAME" property="nickName" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="USER_CODE" property="userCode" jdbcType="VARCHAR" />
+    <result column="USER_PASSWORD" property="userPassword" jdbcType="VARCHAR" />
+    <result column="UNABLE_PASSWORD" property="unablePassword" jdbcType="VARCHAR" />
+    <result column="APPLY_DATE" property="applyDate" jdbcType="DATE" />
+    <result column="APPLY_USER_ID" property="applyUserId" jdbcType="VARCHAR" />
+    <result column="APPLY_USER_NAME" property="applyUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NICK_NAME, USER_NAME, USER_CODE, USER_PASSWORD, UNABLE_PASSWORD, APPLY_DATE, 
+    APPLY_USER_ID, APPLY_USER_NAME
+  </sql>
+
+  <select id="getSysUserInfoByUserNameAndPassword" resultMap="BaseResultMap" parameterType="string">
+    select
+    <include refid="Base_Column_List" />
+    from T_SYS_USER
+    where LOGIN_NAME=#{loginName,jdbcType=VARCHAR} AND USER_PASSWORD=#{password,jdbcType=VARCHAR}
+
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_SYS_USER
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from T_SYS_USER
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.shuyang.sys.domain.SysUserInfo" >
+    insert into T_SYS_USER (ID, NICK_NAME, USER_NAME, 
+      USER_CODE, USER_PASSWORD, UNABLE_PASSWORD, 
+      APPLY_DATE, APPLY_USER_ID, APPLY_USER_NAME
+      )
+    values (#{id,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{userCode,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, #{unablePassword,jdbcType=VARCHAR}, 
+      #{applyDate,jdbcType=DATE}, #{applyUserId,jdbcType=VARCHAR}, #{applyUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shuyang.sys.domain.SysUserInfo" >
+    insert into T_SYS_USER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="nickName != null" >
+        NICK_NAME,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="userCode != null" >
+        USER_CODE,
+      </if>
+      <if test="userPassword != null" >
+        USER_PASSWORD,
+      </if>
+      <if test="unablePassword != null" >
+        UNABLE_PASSWORD,
+      </if>
+      <if test="applyDate != null" >
+        APPLY_DATE,
+      </if>
+      <if test="applyUserId != null" >
+        APPLY_USER_ID,
+      </if>
+      <if test="applyUserName != null" >
+        APPLY_USER_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null" >
+        #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="unablePassword != null" >
+        #{unablePassword,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null" >
+        #{applyDate,jdbcType=DATE},
+      </if>
+      <if test="applyUserId != null" >
+        #{applyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyUserName != null" >
+        #{applyUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shuyang.sys.domain.SysUserInfo" >
+    update T_SYS_USER
+    <set >
+      <if test="nickName != null" >
+        NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null" >
+        USER_CODE = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null" >
+        USER_PASSWORD = #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="unablePassword != null" >
+        UNABLE_PASSWORD = #{unablePassword,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null" >
+        APPLY_DATE = #{applyDate,jdbcType=DATE},
+      </if>
+      <if test="applyUserId != null" >
+        APPLY_USER_ID = #{applyUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyUserName != null" >
+        APPLY_USER_NAME = #{applyUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shuyang.sys.domain.SysUserInfo" >
+    update T_SYS_USER
+    set NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      USER_CODE = #{userCode,jdbcType=VARCHAR},
+      USER_PASSWORD = #{userPassword,jdbcType=VARCHAR},
+      UNABLE_PASSWORD = #{unablePassword,jdbcType=VARCHAR},
+      APPLY_DATE = #{applyDate,jdbcType=DATE},
+      APPLY_USER_ID = #{applyUserId,jdbcType=VARCHAR},
+      APPLY_USER_NAME = #{applyUserName,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

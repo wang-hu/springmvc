@@ -16,7 +16,7 @@ http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 ">
     <beans>
         <beans>
-            <context:component-scan base-package="yc" />
+            <context:component-scan base-package="com.shuyang" />
             <aop:aspectj-autoproxy expose-proxy="true" />
             <bean id="propertyConfigurer"
                   class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -62,7 +62,7 @@ http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
                              <property name="redisTemplate" ref="redisTemplate" />
                              <property name="name" value="default"/>
                         </bean> -->
-                        <!-- <bean class="yc.component.RedisCache">
+                        <!-- <bean class="RedisCache">
                              <property name="redisTemplate" ref="redisTemplate"/>
                              <property name="name" value="common"/>
                              &lt;!&ndash; common名称要在类或方法的注解中使用 &ndash;&gt;

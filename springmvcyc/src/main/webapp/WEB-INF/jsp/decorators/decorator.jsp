@@ -38,5 +38,6 @@
 <script src="<spring:url value="/resources/js/jquery-easyui-1.5.3/easyloader.js"/>"></script>
 <script src="<spring:url value="/resources/js/jquery.multi-select.js"/>"></script>
 <script src="<spring:url value="/resources/js/moment.js"/>"></script>
+<script src="<spring:url value="/resources/js/com.shuyang.sys.common.js"/>"></script>
 <sitemesh:write property='script' />
 </html>

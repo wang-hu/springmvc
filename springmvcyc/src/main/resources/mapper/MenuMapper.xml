@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="yc.domain.mapper.MenuMapper" >
-  <resultMap id="BaseResultMap" type="yc.domain.Menu" >
+<mapper namespace="com.shuyang.yc.domain.mapper.MenuMapper" >
+  <resultMap id="BaseResultMap" type="com.shuyang.yc.domain.Menu" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="menu_name" property="text" jdbcType="VARCHAR" />
     <result column="url" property="url" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from T_MENU
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="yc.domain.Menu" >
+  <insert id="insert" parameterType="com.shuyang.yc.domain.Menu" >
     insert into T_MENU (ID, menu_name, url, 
       menu_order, parent_id, checked
       )
@@ -30,7 +30,7 @@
       #{menuOrder,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{checked,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="yc.domain.Menu" >
+  <insert id="insertSelective" parameterType="com.shuyang.yc.domain.Menu" >
     insert into T_MENU
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="yc.domain.Menu" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.shuyang.yc.domain.Menu" >
     update T_MENU
     <set >
       <if test="text != null" >
@@ -94,7 +94,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="yc.domain.Menu" >
+  <update id="updateByPrimaryKey" parameterType="com.shuyang.yc.domain.Menu" >
     update T_MENU
     set menu_name = #{text,jdbcType=VARCHAR},
       url = #{url,jdbcType=VARCHAR},

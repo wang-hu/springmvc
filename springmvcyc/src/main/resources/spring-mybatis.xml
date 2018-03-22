@@ -10,7 +10,7 @@
                         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- 自动扫描 -->
-    <context:component-scan base-package="yc"/>
+    <context:component-scan base-package="com.shuyang"/>
 
     <!-- 第一种方式：加载一个properties文件 -->
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -58,13 +58,14 @@
         <!-- 自动扫描mapper.xml文件 -->
         <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
         <!-- 给映射的类配置别名 -->
-        <property name="typeAliasesPackage" value="yc.domain" />
+        <property name="typeAliasesPackage" value="com.shuyang.sys.domain;com.shuyang.yc.domain" />
     </bean>
 
     <!-- mapper接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="yc.domain.mapper"/>
+        <property name="basePackage" value="com.shuyang.sys.domain.mapper;com.shuyang.yc.domain.mapper;"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+        <!--com.shuyang.*.domain*.mapper-->
     </bean>
 
 

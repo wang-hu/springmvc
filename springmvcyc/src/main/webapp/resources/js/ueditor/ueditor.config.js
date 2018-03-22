@@ -30,7 +30,7 @@
         UEDITOR_HOME_URL: URL
 
         // 服务器统一请求接口路径
-        , serverUrl: CTX_PATH + "sys/common/ueditor.html?"+CSFR_TOKEN.parameterName+"="+CSFR_TOKEN.token
+        , serverUrl: CTX_PATH + "com.shuyang.sys/common/ueditor.html?"+CSFR_TOKEN.parameterName+"="+CSFR_TOKEN.token
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的重新定义
         , toolbars: [[
