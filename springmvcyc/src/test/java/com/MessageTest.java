@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * @author:wh
@@ -29,5 +30,14 @@ public class MessageTest {
         Locale locale = new Locale(Locale.CHINESE.getLanguage(),Locale.CHINA.getCountry());
         String s = messageSource.getMessage(string, args, string, locale);
         System.out.println(s);
+    }
+
+
+    @Test
+    public void testTheme() {
+       // Locale locale = new Locale(Locale.SIMPLIFIED_CHINESE.getLanguage());
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("");
+        String string = resourceBundle.getString("com.shuyang.sys.error.userHasExist");
+        System.out.println(string);
     }
 }
