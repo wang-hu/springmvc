@@ -71,7 +71,7 @@
                         <C:out value="${loginMsg}"></C:out>
                     </C:if>
                     <div class="form-bottom">
-                        <form role="form" action="<spring:url value="com.shuyang.sys.yc/login.do"/> " method="post" class="login-form">
+                        <form role="form" action="<spring:url value="com/shuyang/sys/login.do"/> " method="post" class="login-form">
                             <div class="form-group">
                                 <label class="sr-only" for="form-username">Username</label>
                                 <input type="text" name="form-username" placeholder="用户名..."
