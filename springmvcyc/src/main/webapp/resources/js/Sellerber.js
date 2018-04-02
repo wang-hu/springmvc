@@ -257,7 +257,7 @@ else{
             return param;
  }
  /**********滚动条**********/
-(function($){document.write("<script language='javascript' src='js/jquery.nicescroll.js'></script>");})(jQuery);
+(function($){document.write("<script language='javascript' src='/resources/js/jquery.nicescroll.js'></script>");})(jQuery);
 /*设置cookie*/
 function setCookie(name, value, Days){
 	if(Days == null || Days == ''){

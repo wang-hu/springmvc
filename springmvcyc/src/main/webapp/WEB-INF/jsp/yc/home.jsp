@@ -1,30 +1,34 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="css/default/home/shop.css" type="text/css" rel="stylesheet" />
-<link href="css/default/home/skin/default/skin.css" rel="stylesheet" type="text/css" id="skin" />
-<link href="css/default/home/Sellerber.css" type="text/css"  rel="stylesheet" />
-<link href="css/default/home/bkg_ui.css" type="text/css" rel="stylesheet" />
-<link href="css/default/home/font/css/font-awesome.min.css"  rel="stylesheet" type="text/css" />
-<script src="js/layer/layer.js" type="text/javascript"></script>
-<script src="js/Sellerber.js" type="text/javascript"></script>
-<script src="js/shopFrame.js" type="text/javascript"></script>
-<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script> 
+<script src="<spring:url value="/resources/js/jquery.min.js"/>"></script>
+<link href="<spring:url value="/resources/css/default/home/shop.css"/>" type="text/css" rel="stylesheet" />
+<link href="<spring:url value="/resources/css/default/home/skin/default/skin.css"/>"  rel="stylesheet" type="text/css" id="skin" />
+<link href="<spring:url value="/resources/css/default/home/Sellerber.css"/>" type="text/css"  rel="stylesheet" />
+<link href="<spring:url value="/resources/css/default/home/bkg_ui.css"/>" type="text/css" rel="stylesheet" />
+<link href="<spring:url value="/resources/css/default/home/font/css/font-awesome.min.css"/>"  rel="stylesheet" type="text/css" />
+<script src="<spring:url value="/resources/js/layer/layer.js"/>" type="text/javascript"></script>
+<script src="<spring:url value="/resources/js/Sellerber.js"/>" type="text/javascript"></script>
+<script src="<spring:url value="/resources/js/shopFrame.js"/>"s type="text/javascript"></script>
+<script src="<spring:url value="/resources/js/jquery.nicescroll.js"/>" type="text/javascript"></script>
+<script type="text/javascript" src="<spring:url value="/resources/js/jquery.cookie.js"/>"></script>
 <title>店铺管理</title>
 </head>
 <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
-  <script src="js/respond.min.js"></script>
-  <script type="text/javascript" src="js/PIE/PIE_IE678.js"></script>
+  <script src="<spring:url value="/resources/js/html5shiv.js"/>"></script>
+  <script type="text/javascript" src="<spring:url value="/resources/js/respond.min.js"/>"></script>
+  <script type="text/javascript" src="<spring:url value="/resources/js/PIE/PIE_IE678.js"/>"></script>
  <![endif]-->
 <body>
  <div class="Sellerber" id="Sellerber">
  <!--顶部-->
   <div class="Sellerber_header apex clearfix" id="Sellerber_header">
-   <div class="l_f logo header"><img src="images/logo_03.png" /></div>
+   <div class="l_f logo header"><img src="/resources/images/home/logo_03.png" /></div>
    <div class="r_f Columns_top clearfix header">
    <!--<div class="time_style l_f"><i class="fa  fa-clock-o"></i><span id="time"></span></div>-->
       <div class="search_style l_f">
@@ -36,13 +40,13 @@
      </div>
    <div class="news l_f "><a href="#" class="fa fa-bell Notice prompt" id="promptbtn"></a><em>5</em></div>
      <div class="administrator l_f">
-       <img src="images/avatar.png"  width="36px"/><span class="user-info">欢迎你,超级管理员</span><i class="glyph-icon fa  fa-caret-down"></i>
+       <img src="/resources/images/home/avatar.png"  width="36px"/><span class="user-info">欢迎你,超级管理员</span><i class="glyph-icon fa  fa-caret-down"></i>
        <ul class="dropdown-menu">
         <li><a href="#"><i class="fa fa-user"></i>个人信息</a></li>
         <li><a href="#"><i class="fa fa-cog"></i>系统设置</a></li>
         <li><a href="javascript:void(0)" id="Exit_system"><i class="fa fa-user-times"></i>退出</a></li>
        </ul>
-     </div> 
+     </div>
    </div>
   </div>
 <!--左侧-->
@@ -64,13 +68,13 @@
          <li><a class="colorpick-btn" href="javascript:void(0)" data-val="gray" style="background-color:#41a2ff;" ></a></li>
          <li><a class="colorpick-btn" href="javascript:void(0)" data-val="red" style="background-color:#FF6868;" ></a></li>
          <li><a class="colorpick-btn" href="javascript:void(0)" data-val="purple" style="background-color:#6F036B;" ></a></li>
-        </ul>     
+        </ul>
      </div>
-     <!--左侧菜单栏目-->  
+     <!--左侧菜单栏目-->
      <div class="column_list" >
-		 <ul class="menuUl menu_list" id="column_list"> 	
+		 <ul class="menuUl menu_list" id="column_list">
 		 </ul>
-	 </div> 
+	 </div>
     </div>
   </div>
  </div>
@@ -80,7 +84,7 @@
        <a id="js-tabNav-prev" class="radius btn-default left_roll" href="javascript:;"><i class="fa fa-backward"></i></a>
        <div class="breadcrumb_style clearfix">
 	     <ul class="breadcrumb clearfix" id="min_title_list">
-          <li class="active home"><span title="我的桌面" data-href="index.html"><i class="fa fa-home home-icon"></i>首页</span></li>
+          <li class="active home"><span title="我的桌面" data-href="<spring:url value="com/shuyang/sys/index"/>"><i class="fa fa-home home-icon"></i>首页</span></li>
          </ul>
       </div>
        <a id="js-tabNav-next" class="radius btn-default right_roll" href="javascript:;"><i class="fa fa-forward"></i></a>
@@ -95,10 +99,10 @@
 		</div>
 		<a href="javascript:void(0)" class="radius roll-right fullscreen"><i class="fa fa-arrows-alt"></i></a>
     </div>
-  <!--具体内容-->  
+  <!--具体内容-->
   <div id="iframe_box" class="iframe_content">
   <div class="show_iframe index_home" id="show_iframe">
-       <iframe scrolling="yes" class="simei_iframe" frameborder="0" src="index.html" name="iframepage" data-href="index.html"></iframe>
+       <iframe scrolling="yes" class="simei_iframe" frameborder="0" src="index" name="iframepage" data-href="<spring:url value="com/shuyang/sys/index"/>"></iframe>
        </div>
       </div>
   </div>
@@ -129,7 +133,7 @@
 	  <div class="tz_title">订单消息（5）</div>
 	  <a href="javascript:void(0)" class="" name="Personal_info.html" title="订单消息"><i class="fa fa-user icon_prompt label-danger"></i>你有订单还没有处理请及时处理</a>
     </div>
-  </div> 
+  </div>
  </div>
 </body>
 </html>
@@ -189,7 +193,7 @@
 		 pid:0,
 		 url:"#",
 		 icon:'fa fa-user',
-		 name:'会员管理',	  
+		 name:'会员管理',
     },
     {
 		 id:9,
@@ -255,7 +259,7 @@
 		 id:26,
 		 pid:1,
 		 icon:'fa fa-angle-double-right',
-		 url:'index.html',
+		 url:'com/shuyang/sys/index',
 		 name:'首页',
 
   },
@@ -305,7 +309,7 @@
 		 name:'业绩统计',
 
 	},
-	
+
 		{
 		 id:45,
 		 pid:7,
@@ -459,7 +463,7 @@
 		 name:'消息通知',
 
 	},
-		
+
 	{
 		 id:55,
 		 pid:6,
@@ -469,7 +473,7 @@
 
 	}]
 //设置框架
- $(function() {  		 
+ $(function() {
 	 $("#Sellerber").frame({
 		float : 'left',//设置菜单栏目方向属性
 		minStatue:true,//切换模式
@@ -481,25 +485,25 @@
 		menu_nav:'.menu_list',//设置栏目属性
 		column_list:'.column_list',//设置栏目名称
 		time:'.date_time',//设置时间属性(不填写不显示)
-		logo_img:'images/logo_01.png',//logo地址链接（当header为0时显示该属性）
+		logo_img:'/resources/images/home/logo_01.png',//logo地址链接（当header为0时显示该属性）
 	    Sellerber_content:'.Sellerber_content',//右侧名称
 		Sellerber_menu:'.list_content', //左侧栏目
-		header:'.Sellerber_header',//顶部栏目	
+		header:'.Sellerber_header',//顶部栏目
 		prompt:'.prompt_style',
 		prompt_btn:'#promptbtn',//点击事件
 		data:data,//数据
 		mouIconOpen:"fa fa-angle-down",// 菜单(展开)图标
 	    mouIconClose:"fa fa-angle-up" , // 菜单（隐藏）图标
 		Rightclick:true//是否禁用右键
-	 }); 
+	 });
 });
 $('#Exit_system').on('click', function(){
       layer.confirm('是否确定退出系统？', {
      btn: ['是','否'] ,//按钮
 	 icon:2,
-    }, 
+    },
 	function(){
-	  location.href="login.html";  
+	  location.href="login.html";
     });
 });
 </script>

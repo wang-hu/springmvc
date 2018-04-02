@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
           http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
-    <display-name>springmvc-com.shuyang.sys.yc</display-name>
+    <display-name>springMVC</display-name>
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring.xml,classpath:spring-mybatis.xml</param-value>
@@ -46,7 +46,7 @@
 
     <!-- spring mvc servlet-->
     <servlet>
-        <servlet-name>SpringMVC-YC</servlet-name>
+        <servlet-name>SpringMVC</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
@@ -56,7 +56,7 @@
         <async-supported>true</async-supported>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SpringMVC-YC</servlet-name>
+        <servlet-name>SpringMVC</servlet-name>
         <!-- 此处也可以配置成 *.do 形式 -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>

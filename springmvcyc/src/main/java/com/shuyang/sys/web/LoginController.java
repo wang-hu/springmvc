@@ -19,9 +19,18 @@ public class LoginController {
     @RequestMapping("/login")
     public String login_init(String loginName,String password) {
 
-       // loginService.getSysUserInfoByUserNameAndPassword(loginName,password);
+        // loginService.getSysUserInfoByUserNameAndPassword(loginName,password);
 
         return "yc/home";
+    }
+
+
+    @RequestMapping("/index")
+    public String home_init(String loginName,String password) {
+
+        // loginService.getSysUserInfoByUserNameAndPassword(loginName,password);
+
+        return "yc/index";
     }
 
 }
