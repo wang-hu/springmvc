@@ -58,10 +58,10 @@
   /*--------------------------------------------------------------------------*/
 
   /**
-   * Creates a style sheet with the given CSS text and adds it to the document.
+   * Creates a style sheet with the given CSS name and adds it to the document.
    * @private
    * @param {Document} ownerDocument The document.
-   * @param {String} cssText The CSS text.
+   * @param {String} cssText The CSS name.
    * @returns {StyleSheet} The style element.
    */
   function addStyleSheet(ownerDocument, cssText) {
@@ -132,7 +132,7 @@
     // * Link elements with `src` attributes that are inaccessible, as with
     //   a 403 response, will cause the tab/window to crash
     // * Script elements appended to fragments will execute when their `src`
-    //   or `text` property is set
+    //   or `name` property is set
     return node.canHaveChildren && !reSkip.test(nodeName) ? data.frag.appendChild(node) : node;
   }
 

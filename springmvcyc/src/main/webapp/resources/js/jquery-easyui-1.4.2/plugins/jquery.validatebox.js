@@ -9,7 +9,7 @@
  */
 (function($){
 function _1(_2){
-$(_2).addClass("validatebox-text");
+$(_2).addClass("validatebox-name");
 };
 function _3(_4){
 var _5=$.data(_4,"validatebox");

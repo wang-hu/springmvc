@@ -52,9 +52,9 @@ t.attr("group",_d.group||"");
 t.attr("id",_d.id||"");
 var _e=$("<span class=\"l-btn-left\"></span>").appendTo(t);
 if(_d.text){
-$("<span class=\"l-btn-text\"></span>").html(_d.text).appendTo(_e);
+$("<span class=\"l-btn-name\"></span>").html(_d.text).appendTo(_e);
 }else{
-$("<span class=\"l-btn-text l-btn-empty\">&nbsp;</span>").appendTo(_e);
+$("<span class=\"l-btn-name l-btn-empty\">&nbsp;</span>").appendTo(_e);
 }
 if(_d.iconCls){
 $("<span class=\"l-btn-icon\">&nbsp;</span>").addClass(_d.iconCls).appendTo(_e);

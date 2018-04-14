@@ -37,14 +37,14 @@
 					'<div class="calendar-nav calendar-prevyear"></div>' +
 					'<div class="calendar-nav calendar-nextyear"></div>' +
 					'<div class="calendar-title">' +
-						'<span class="calendar-text"></span>' +
+						'<span class="calendar-name"></span>' +
 					'</div>' +
 				'</div>' +
 				'<div class="calendar-body">' +
 					'<div class="calendar-menu">' +
 						'<div class="calendar-menu-year-inner">' +
 							'<span class="calendar-nav calendar-menu-prev"></span>' +
-							'<span><input class="calendar-menu-year" type="text"></input></span>' +
+							'<span><input class="calendar-menu-year" type="name"></input></span>' +
 							'<span class="calendar-nav calendar-menu-next"></span>' +
 						'</div>' +
 						'<div class="calendar-menu-month-inner">' +
@@ -72,12 +72,12 @@
 		});
 		$(target).unbind('.calendar').bind('mouseover.calendar', function(e){
 			var t = toTarget(e.target);
-			if (t.hasClass('calendar-nav') || t.hasClass('calendar-text') || (t.hasClass('calendar-day') && !t.hasClass('calendar-disabled'))){
+			if (t.hasClass('calendar-nav') || t.hasClass('calendar-name') || (t.hasClass('calendar-day') && !t.hasClass('calendar-disabled'))){
 				t.addClass('calendar-nav-hover');
 			}
 		}).bind('mouseout.calendar', function(e){
 			var t = toTarget(e.target);
-			if (t.hasClass('calendar-nav') || t.hasClass('calendar-text') || (t.hasClass('calendar-day') && !t.hasClass('calendar-disabled'))){
+			if (t.hasClass('calendar-nav') || t.hasClass('calendar-name') || (t.hasClass('calendar-day') && !t.hasClass('calendar-disabled'))){
 				t.removeClass('calendar-nav-hover');
 			}
 		}).bind('click.calendar', function(e){
@@ -94,7 +94,7 @@
 				showMonth(-1);
 			} else if (t.hasClass('calendar-nextmonth')){
 				showMonth(1);
-			} else if (t.hasClass('calendar-text')){
+			} else if (t.hasClass('calendar-name')){
 				if (menu.is(':visible')){
 					menu.hide();
 				} else {

@@ -79,7 +79,7 @@
 						item[0].itemHref = itemOpts.href || '';
 						
 						var text = item.addClass('menu-item').html();
-						item.empty().append($('<div class="menu-text"></div>').html(text));
+						item.empty().append($('<div class="menu-name"></div>').html(text));
 						if (itemOpts.iconCls){
 							$('<div class="menu-icon"></div>').addClass(itemOpts.iconCls).appendTo(item);
 						}
@@ -115,7 +115,7 @@
 		});
 		menu.find('.menu-item').each(function(){
 			$(this)._outerHeight(opts.itemHeight);
-			$(this).find('.menu-text').css({
+			$(this).find('.menu-name').css({
 				height: (opts.itemHeight-2)+'px',
 				lineHeight: (opts.itemHeight-2)+'px'
 			});
@@ -125,7 +125,7 @@
 		var width = menu[0].originalWidth || 'auto';
 		if (isNaN(parseInt(width))){
 			width = 0;
-			menu.find('div.menu-text').each(function(){
+			menu.find('div.menu-name').each(function(){
 				if (width < $(this)._outerWidth()){
 					width = $(this)._outerWidth();
 				}
@@ -403,7 +403,7 @@
 			var item = $('<div class="menu-sep"></div>').appendTo(menu);
 		} else {
 			var item = $('<div class="menu-item"></div>').appendTo(menu);
-			$('<div class="menu-text"></div>').html(param.text).appendTo(item);
+			$('<div class="menu-name"></div>').html(param.text).appendTo(item);
 		}
 		if (param.iconCls) $('<div class="menu-icon"></div>').addClass(param.iconCls).appendTo(item);
 		if (param.id) item.attr('id', param.id);
@@ -502,15 +502,15 @@
 			});
 		},
 		/**
-		 * set the menu item text
+		 * set the menu item name
 		 * param: {
 		 * 	target: DOM object, indicate the menu item
-		 * 	text: string, the new text
+		 * 	name: string, the new name
 		 * }
 		 */
 		setText: function(jq, param){
 			return jq.each(function(){
-				$(param.target).children('div.menu-text').html(param.text);
+				$(param.target).children('div.menu-name').html(param.text);
 			});
 		},
 		/**
@@ -533,7 +533,7 @@
 		 * {
 		 * 	target: DOM object, the menu item
 		 *  id: the menu id
-		 * 	text: the menu item text
+		 * 	name: the menu item name
 		 * 	iconCls: the icon class
 		 *  href: a remote address to redirect to
 		 *  onclick: a function to be called when the item is clicked
@@ -544,7 +544,7 @@
 			var item = {
 				target: itemEl,
 				id: t.attr('id'),
-				text: $.trim(t.children('div.menu-text').html()),
+				text: $.trim(t.children('div.menu-name').html()),
 				disabled: t.hasClass('menu-item-disabled'),
 //				href: t.attr('href'),
 //				name: t.attr('name'),
@@ -570,7 +570,7 @@
 		},
 		/**
 		 * append menu item, the param contains following properties:
-		 * parent,id,text,iconCls,href,onclick
+		 * parent,id,name,iconCls,href,onclick
 		 * when parent property is assigned, append menu item to it
 		 */
 		appendItem: function(jq, param){

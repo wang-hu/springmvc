@@ -116,7 +116,7 @@
 	}
 	
 	/**
-	 * called when user inputs some value in text box
+	 * called when user inputs some value in name box
 	 */
 	function doQuery(target, q){
 		setValue(target, q, true);

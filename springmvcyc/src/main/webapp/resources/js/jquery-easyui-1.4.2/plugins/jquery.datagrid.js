@@ -63,7 +63,7 @@ if(!_10){
 _10=$.data(cc[0],"ss",{cache:{},dirty:[]});
 }
 return {add:function(_11){
-var ss=["<style type=\"text/css\" easyui=\"true\">"];
+var ss=["<style type=\"name/css\" easyui=\"true\">"];
 for(var i=0;i<_11.length;i++){
 _10.cache[_11[i][0]]={width:_11[i][1]};
 }
@@ -1472,7 +1472,7 @@ var tr=$.data(_162,"datagrid").options.finder.getTr(_162,_163);
 if(!tr.hasClass("datagrid-row-editing")){
 return true;
 }
-var vbox=tr.find(".validatebox-text");
+var vbox=tr.find(".validatebox-name");
 vbox.validatebox("validate");
 vbox.trigger("mouseleave");
 var _164=tr.find(".validatebox-invalid");
@@ -1719,7 +1719,7 @@ function isA(_19d){
 return $.data($(_19d)[0],name)!=undefined;
 };
 return {init:function(_19e,_19f){
-var _1a0=$("<input type=\"text\" class=\"datagrid-editable-input\">").appendTo(_19e);
+var _1a0=$("<input type=\"name\" class=\"datagrid-editable-input\">").appendTo(_19e);
 if(_1a0[name]&&name!="text"){
 return _1a0[name](_19f);
 }else{
@@ -1791,7 +1791,7 @@ _1b6=true;
 }
 $(_1b4)._propAttr("checked",_1b6);
 }},validatebox:{init:function(_1b7,_1b8){
-var _1b9=$("<input type=\"text\" class=\"datagrid-editable-input\">").appendTo(_1b7);
+var _1b9=$("<input type=\"name\" class=\"datagrid-editable-input\">").appendTo(_1b7);
 _1b9.validatebox(_1b8);
 return _1b9;
 },destroy:function(_1ba){
@@ -2169,7 +2169,7 @@ cc.push("<td field=\""+_209+"\" "+cls+" "+_20d+">");
 var _20d="";
 if(!col.checkbox){
 if(col.align){
-_20d+="text-align:"+col.align+";";
+_20d+="name-align:"+col.align+";";
 }
 if(!opts.nowrap){
 _20d+="white-space:normal;height:auto;";

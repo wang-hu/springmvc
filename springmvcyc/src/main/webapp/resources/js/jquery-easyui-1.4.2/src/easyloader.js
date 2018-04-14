@@ -228,7 +228,7 @@
 	function loadJs(url, callback){
 		var done = false;
 		var script = document.createElement('script');
-		script.type = 'text/javascript';
+		script.type = 'name/javascript';
 		script.language = 'javascript';
 		script.src = url;
 		script.onload = script.onreadystatechange = function(){
@@ -255,7 +255,7 @@
 	function loadCss(url, callback){
 		var link = document.createElement('link');
 		link.rel = 'stylesheet';
-		link.type = 'text/css';
+		link.type = 'name/css';
 		link.media = 'screen';
 		link.href = url;
 		document.getElementsByTagName('head')[0].appendChild(link);

@@ -1,0 +1,272 @@
+	var data =[
+    {
+    	 id:1,
+		 pid:0,
+		 url:"#",
+		 icon:'fa fa-home',
+         name:'系统首页',
+    },
+    {
+		 id:5,
+		 pid:0,
+		 url:"#",
+		 icon:'fa fa-cogs',
+		 name:'系统管理',
+    },
+    {
+		 id:6,
+		 pid:0,
+		 url:"#",
+		 icon:'fa fa-file-name-o',
+		 name:'文章管理',
+    },
+    {
+		 id:7,
+		 pid:0,
+		 url:"#",
+		 icon:'fa fa-users',
+		 name:'管理员',
+    },
+    {
+		 id:8,
+		 pid:0,
+		 url:"#",
+		 icon:'fa fa-user',
+		 name:'会员管理',	  
+    },
+    {
+		 id:9,
+		 pid:0,
+		 url:"#",
+		 icon:'fa fa-bar-chart',
+		 name:'报表管理',
+    },
+    {
+		 id:10,
+		 pid:0,
+		 url:"#",
+		 icon:'fa fa-file-photo-o',
+		 name:'广告管理',
+    },{
+		 id:11,
+		 pid:0,
+		 url:"#",
+		 icon:'fa fa-file-photo-o',
+		 name:'单页管理',
+    },{
+		 id:12,
+		 pid:0,
+		 url:"#",
+		 icon:'fa fa-home',
+		 name:'前端管理',
+    },{
+		 id:13,
+		 pid:0,
+		 url:"#",
+		 icon:'fa fa-comments',
+		 name:'留言管理',
+    },{
+		 id:14,
+		 pid:0,
+		 url:"#",
+		 icon:'fa fa-laptop',
+		 name:'店铺管理',
+    },{
+		 id:20,
+		 pid:11,
+		 url:"page_list.html",
+		 icon:'fa fa-angle-double-right',
+		 name:'商城列表',
+    },
+		{
+		  id:26,
+		  pid:8,
+		  icon:'fa fa-angle-double-right',
+		  url:'member_list.html',
+		  name:'会员列表',
+
+	},
+	{
+		 id:26,
+		 pid:1,
+		 icon:'fa fa-angle-double-right',
+		 url:'index',
+		 name:'首页',
+
+  },
+	{
+		 id:37,
+		 pid:12,
+		 icon:'fa fa-angle-double-right',
+		 url:'Columns.html',
+		 name:'栏目管理',
+
+	},{
+		 id:38,
+		 pid:9,
+		 icon:'fa fa-angle-double-right',
+		 url:'',
+		 name:'访问统计',
+
+	},{
+		 id:39,
+		 pid:9,
+		 icon:'fa fa-angle-double-right',
+		 url:'',
+		 name:'业绩统计',
+
+	},
+	
+		{
+		 id:45,
+		 pid:7,
+		 icon:'fa fa-angle-double-right',
+		 url:'admin_Competence.html',
+		 name:'权限设置',
+
+	},{
+		 id:46,
+		 pid:3,
+		 icon:'fa fa-angle-double-right',
+		 url:'Order_form.html',
+		 name:'订单管理',
+
+	},{
+		 id:47,
+		 pid:3,
+		 icon:'fa fa-angle-double-right',
+		 url:'Refund.html',
+		 name:'退款管理',
+
+	},{
+		 id:54,
+		 pid:7,
+		 icon:'fa fa-angle-double-right',
+		 url:'administrator_list.html',
+		 name:'管理员设置',
+
+	},{
+		 id:55,
+		 pid:7,
+		 icon:'fa fa-angle-double-right',
+		 url:'Personal_info.html',
+		 name:'管理员信息',
+
+	},
+	{
+		  id:37,
+		  pid:3,
+		  icon:'fa fa-angle-double-right',
+		  url:'Order.html',
+		  name:'交易统计',
+
+	},
+	{
+		 id:38,
+		 pid:3,
+		 icon:'fa fa-angle-double-right',
+		 url:'Brand_Manage.html',
+		 name:'订单处理',
+
+  },
+	{
+		 id:39,
+		 pid:3,
+		 icon:'fa fa-angle-double-right',
+		 url:'Order_Logistics.html',
+		 name:'物流管理',
+
+	},
+	{
+		 id:40,
+		 pid:3,
+		 icon:'fa fa-angle-double-right',
+		 url:'Order_Chart.html',
+		 name:'订单统计（全国图）',
+
+	},
+
+	{
+		 id:41,
+		 pid:4,
+		 icon:'fa fa-angle-double-right',
+		 url:'payment_method.html',
+		 name:'支付管理',
+
+  },
+	{
+		 id:42,
+		 pid:4,
+		 icon:'fa fa-angle-double-right',
+		 url:'Payment_Configure.html',
+		 name:'支付配置',
+
+	},{
+		 id:43,
+		 pid:10,
+		 icon:'fa fa-angle-double-right',
+		 url:'Advertising_list.html',
+		 name:'广告列表',
+
+	},
+		{
+		 id:44,
+		 pid:10,
+		 icon:'fa fa-angle-double-right',
+		 url:'Advertising_sort.html',
+		 name:'广告分类',
+
+	},{
+		 id:45,
+		 pid:5,
+		 icon:'fa fa-angle-double-right',
+		 url:'menu/menu_init',
+		 name:'栏目设置',
+
+	},
+		{
+		 id:46,
+		 pid:5,
+		 icon:'fa fa-angle-double-right',
+		 url:'form_builder.html',
+		 name:'自定页面',
+
+	},
+		{
+		 id:46,
+		 pid:5,
+		 icon:'fa fa-angle-double-right',
+		 url:'system_info.html',
+		 name:'系统设置',
+
+	},
+		{
+		 id:47,
+		 pid:5,
+		 icon:'fa fa-angle-double-right',
+		 url:'rizhi_list.html',
+		 name:'系统日志',
+
+	},{
+		 id:48,
+		 pid:13,
+		 icon:'fa fa-angle-double-right',
+		 url:'feedback.html',
+		 name:'留言反馈',
+
+	},{
+		 id:49,
+		 pid:13,
+		 icon:'fa fa-angle-double-right',
+		 url:'Notice.html',
+		 name:'消息通知',
+
+	},
+	{
+		 id:55,
+		 pid:6,
+		 icon:'fa fa-angle-double-right',
+		 url:'Article_list.html',
+		 name:'文章列表',
+
+	}]

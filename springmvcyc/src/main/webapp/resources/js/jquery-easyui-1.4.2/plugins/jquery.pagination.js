@@ -58,7 +58,7 @@ bb.last=_9("last");
 }else{
 if(_8=="manual"){
 $("<span style=\"padding-left:6px;\"></span>").html(_4.beforePageText).appendTo(tr).wrap("<td></td>");
-bb.num=$("<input class=\"pagination-num\" type=\"text\" value=\"1\" size=\"2\">").appendTo(tr).wrap("<td></td>");
+bb.num=$("<input class=\"pagination-num\" type=\"name\" value=\"1\" size=\"2\">").appendTo(tr).wrap("<td></td>");
 bb.num.unbind(".pagination").bind("keydown.pagination",function(e){
 if(e.keyCode==13){
 var _a=parseInt($(this).val())||1;

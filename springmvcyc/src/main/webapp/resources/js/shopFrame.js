@@ -473,7 +473,7 @@
 					colorbtn.find('a').removeClass("selected");
 				   $(this).addClass("selected");				
 		          $.cookie("MYCssSkin",v,{path:'/',expires:10}); 
-				  $("#skin").attr("href","skin/"+v+"/skin.css");				  
+				  $("#skin").attr("href","/resources/skin/"+v+"/skin.css");
 					});
 					var cookie_skin=$.cookie("MyCssSkin");
 				  if(cookie_skin){switchskin(cookie_skin)};
@@ -582,11 +582,11 @@
 					var lihtml = "<li>";
 					if(item.child && item.child.length > 0) {
 						lihtml += "<a href='javascript:void(0)' ischek='false' class='menuUl_title' name='" + item.url + "' title='"+item.name+"'><i ischek='false' class='" + item.icon + "'></i>" +
-							"<span id='" + item.id + "' class='menu-text'>" + item.name + "</span><i ischek='false' class='arrow "+ settings.mouIconOpen + "'></i></a>";
+							"<span id='" + item.id + "' class='menu-name'>" + item.name + "</span><i ischek='false' class='arrow "+ settings.mouIconOpen + "'></i></a>";
 						var _ul =menuHtml(item.child);
 						lihtml +="<ul class='submenu'>"+ _ul + "</ul></li>";
 					} else {
-						lihtml += "<a href='javascript:void(0)' name='" + item.url + "' title='"+item.name+"' class='name menuUl_title' data-name='" + item.id + "'><i class='" + item.icon + "'></i>"+ "<span id='" + item.id + "' class='menu-text'>" +item.name + "</span></a>";
+						lihtml += "<a href='javascript:void(0)' name='" + item.url + "' title='"+item.name+"' class='name menuUl_title' data-name='" + item.id + "'><i class='" + item.icon + "'></i>"+ "<span id='" + item.id + "' class='menu-name'>" +item.name + "</span></a>";
 					}
 					ulHtml += lihtml;
 				}); 

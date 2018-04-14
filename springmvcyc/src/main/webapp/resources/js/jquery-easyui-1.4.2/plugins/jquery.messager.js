@@ -122,7 +122,7 @@ var win=_a(_13);
 return win;
 },prompt:function(_14,msg,fn){
 var _15=typeof _14=="object"?_14:{title:_14,msg:msg,fn:fn};
-_15=$.extend({},$.messager.defaults,{content:"<div class=\"messager-icon messager-question\"></div>"+"<div>"+_15.msg+"</div>"+"<br/>"+"<div style=\"clear:both;\"/>"+"<div><input class=\"messager-input\" type=\"text\"/></div>",buttons:[{text:$.messager.defaults.ok,onClick:function(){
+_15=$.extend({},$.messager.defaults,{content:"<div class=\"messager-icon messager-question\"></div>"+"<div>"+_15.msg+"</div>"+"<br/>"+"<div style=\"clear:both;\"/>"+"<div><input class=\"messager-input\" type=\"name\"/></div>",buttons:[{text:$.messager.defaults.ok,onClick:function(){
 win.window("close");
 _15.fn(win.find(".messager-input").val());
 }},{text:$.messager.defaults.cancel,onClick:function(){

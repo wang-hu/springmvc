@@ -6,22 +6,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="<spring:url value="/resources/css/default/home/shop.css"/>"type="text/css" rel="stylesheet" />
-<link href="<spring:url value="/resources/css/default/home/Sellerber.css"/>" type="text/css"  rel="stylesheet" />
-<link href="<spring:url value="/resources/css/default/home/bkg_ui.css"/>" type="text/css"  rel="stylesheet" />
-<link href="<spring:url value="/resources/css/default/home/font/css/font-awesome.min.css"/>"  rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<spring:url value="/resources/js/jquery.cookie.js"/>"></script>
-<script src="<spring:url value="/resources/js/Sellerber.js"/>" type="text/javascript"></script>
-<script src="<spring:url value="/resources/js/shopFrame.js"/>"rc="js/shopFrame.js" type="text/javascript"></script>
-<script src="<spring:url value="/resources/js/echarts/echarts.min.js"/>" type="text/javascript"></script>
-<script src="<spring:url value="/resources/js/jquery.nicescroll.js"/>" type="text/javascript"></script>
-
-
-<!--[if lt IE 9]>
-<script src="<spring:url value="/resources/js/html5shiv.js"/>" type="text/javascript"></script>
-<script src="<spring:url value="/resources/js/respond.min.js"/>"></script>
-<script src="<spring:url value="/resources/js/css3-mediaqueries.js"/>"  type="text/javascript"></script>
-  <![endif]-->
+<%--<link href="/resources/css/shop.css" type="text/css" rel="stylesheet" />--%>
+<%--<link href="/resources/css/Sellerber.css" type="text/css"  rel="stylesheet" />--%>
+<%--<link href="/resources/css/bkg_ui.css" type="text/css"  rel="stylesheet" />--%>
+<%--<link href="/resources/font/css/font-awesome.min.css"  rel="stylesheet" type="text/css" />--%>
+<%--<script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript" ></script>--%>
+<%--<script type="text/javascript" src="/resources/js/jquery.cookie.js"></script>--%>
+<%--<script src="/resources/js/Sellerber.js" type="text/javascript"></script>--%>
+<%--<script src="/resources/js/shopFrame.js" type="text/javascript"></script>--%>
+<%--<script src="/resources/js/dist/echarts.js" type="text/javascript"></script>--%>
+<%--<script src="/resources/js/jquery.nicescroll.js" type="text/javascript"></script>--%>
+<%--<!--[if lt IE 9]>--%>
+<%--<script src="/resources/js/html5shiv.js" type="text/javascript"></script>--%>
+<%--<script src="/resources/js/respond.min.js"></script>--%>
+<%--<script src="/resources/js/css3-mediaqueries.js"  type="text/javascript"></script>--%>
+  <%--<![endif]-->--%>
 <title>首页</title>
 </head>
 
@@ -30,7 +29,7 @@
 <div class="spacing_style" ></div>
  <div class="margin-bottom clearfix ">
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-4">
-   <a href="javascript:ovid()" class="tile-button btn_Plate bg-deep-blue">
+   <a href="javascript:void(0)" class="tile-button btn_Plate bg-deep-blue">
    <div class="carousel Module_info">
    <div class="left_img bg_color_bule">
     <i class="fa fa-cny"></i>
@@ -41,7 +40,7 @@
    </a>
   </div>
    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-4">
-   <a href="javascript:ovid()" class="tile-button btn_Plate bg-green">
+   <a href="javascript:void(0)" class="tile-button btn_Plate bg-green">
    <div class="carousel Module_info">
    <div class="left_img bg_color_green">
     <i class="fa  fa-comments-o"></i>
@@ -52,7 +51,7 @@
    </a>
   </div>
    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-4">
-   <a href="javascript:ovid()" class="tile-button btn_Plate bg-red ">
+   <a href="javascript:void(0)" class="tile-button btn_Plate bg-red ">
    <div class="carousel Module_info">
    <div class="left_img bg_color_red">
     <i class="fa fa-shopping-cart"></i>
@@ -63,7 +62,7 @@
    </a>
   </div> 
  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-4">
-   <a href="javascript:ovid()" class="tile-button btn_Plate bg-orange">
+   <a href="javascript:void(0)" class="tile-button btn_Plate bg-orange">
    <div class="carousel Module_info">
    <div class="left_img bg_color_orange">
     <i class="fa  fa-volume-up "></i>
@@ -74,7 +73,7 @@
    </a>
   </div>
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-4">
-   <a href="javascript:ovid()" class="tile-button btn_Plate bg-purple">
+   <a href="javascript:void(0)" class="tile-button btn_Plate bg-purple">
    <div class="carousel Module_info">
    <div class="left_img bg_color_purple">
     <i class="fa  fa-clock-o "></i>
@@ -85,7 +84,7 @@
    </a>
   </div>
    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-4">
-   <a href="javascript:ovid()" class="tile-button btn_Plate bg-yellow">
+   <a href="javascript:void(0)" class="tile-button btn_Plate bg-yellow">
    <div class="carousel Module_info">
    <div class="left_img bg_color_yellow">
     <i class="fa  fa-clock-o "></i>
@@ -107,7 +106,7 @@
  <div class="Shops_info clearfix frame">
   <div class="left_shop">
   <div class="left_shop_logo">
-   <div class="shop_logo"><span class="bg_yuan"></span><img src="/resources/images/home/dp_logo.jpg" /></div>
+   <div class="shop_logo"><span class="bg_yuan"></span><img src="/resources/images/dp_logo.jpg" /></div>
    <a href="#" class="btn bg-deep-blue paddings">进入首页</a>
    </div>
    <div class="Shops_content">
@@ -279,6 +278,7 @@
 </div>
 </body>
 </html>
+<myScript>
 <script>
 //设置框架
 $(function() {  		 
@@ -296,7 +296,7 @@ $(function() {
 /*********************/
    require.config({
             paths: {
-                echarts: './js/dist'
+                echarts: '/resources/js/dist'
             }
         });
         require(
@@ -398,4 +398,4 @@ $(function() {
 			myChart.setOption(option);
 			}
 			);
-</script>
+</script></myScript>

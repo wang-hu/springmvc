@@ -1,16 +1,29 @@
-/*******************************************************************************
- * 初始化参数
- ******************************************************************************/
 $(document).ready(function()
 {
     $.sys.disableBackSpace();
 });
 
+/** ajax 全局参数 */
+$.ajaxSetup({
+    traditional : true,// 传统方式序列化参数 而不是a[]=1&&a[]=2
+    contentType : 'application/x-www-form-urlencoded;  charset=UTF-8', // 确保ie下中文不乱码
+    complete : function(XMLHttpRequest, textStatus) {
 
-/**
- * ☆★★★★★注册函数到sys包为jQuery的静态方法★★★★★★★★★★★☆
- *
- */
+    },
+    error:function(XMLHttpRequest, textStatus, errorThrown){
+        var result = $.parseJSON(XMLHttpRequest.responseText);
+        var msg="";
+
+        msg=msg+"类型："+result.status;
+        msg=msg+"<br>消息："+result.message;
+        msg=msg+"<br>NO&nbsp;："+result.errid;
+        $.messager.show({height:120,title:result.error,msg:msg});
+    }
+});
+
+/*******************************************************************************
+ * sys包 系统核心功能函数
+ ******************************************************************************/
 (function($) {
     /**
      * 将形如param1=x1&param2=x2&obj.name=name的form转化为
@@ -23,6 +36,118 @@ $(document).ready(function()
         var obj = paramString2obj(serializedParams);
         return obj;
     };
+    /**
+     * 将形如param1=x1&param2=x2&obj.name=name的form转化为
+     * JSON{param1:x1,param2:x2,obj.name:name}}
+     *
+     * @e.g. var param=$(formSelector).form2param();
+     */
+    $.fn.form2param = function() {
+        var serializedParams = this.serialize();
+        var obj = paramString2Param(serializedParams);
+        return obj;
+    };
+    /**
+     * 简单的隐藏POST提交
+     * */
+    $.fn.formPost = function (url,json) {
+        var form = $("<form></form>");
+        form.attr('action', url);
+        form.attr('method', 'post');
+        form.attr('target', '_self');
+        var token = $("meta[name='_csrf']").attr("content");
+        form.append("<input type='hidden' name='_csrf' value='"+token+"' /> ")
+        for(var name in json){
+            var input1 = $("<input type='hidden' name='"+name+"' />");
+            input1.attr('value', json[name]);
+            form.append(input1);
+        }
+        form.appendTo("body");
+        form.css('display', 'none');
+        form.submit();
+        form.remove();
+    };
+    /**
+     * 给json对象加前缀
+     *
+     * @param json
+     *            json对象
+     * @param perfix
+     *            前缀
+     * @e.g. var newJson=$.Json2Perfix(oldJson,"perfix");
+     */
+    $.Json2Perfix = function(json, perfix) {
+        var data = $.param(json);
+        data = data.replace(/(&?)(\w*)(=)/g, "$1" + perfix + "." + "$2$3");
+        return paramString2Param(data);
+    };
+
+    /**
+     * 将形如param1=x1&param2=x2&obj.name=name的串转化为JSON
+     * {param1:x1,param2:x2,obj:{name:name}}
+     */
+    function paramString2obj(serializedParams) {
+        var obj = {};
+        function evalThem(str) {
+            var attributeName = str.split("=")[0];
+            var attributeValue = str.split("=")[1];
+            if (!attributeValue) {
+                return;
+            }
+            var array = attributeName.split(".");
+            for ( var i = 1; i < array.length; i++) {
+                var tmpArray = Array();
+                tmpArray.push("obj");
+                for ( var j = 0; j < i; j++) {
+                    tmpArray.push(array[j]);
+                }
+
+                var evalString = tmpArray.join(".");
+                if (!eval(evalString)) {
+                    eval(evalString + "={};");
+                }
+            }
+            ;
+            //eval("obj." + attributeName + "='" + decodeURI(attributeValue)+ "';");
+            var attr=attributeValue.replace(/\+/g, '%20');
+            attr=decodeURIComponent(attr);
+            attr=attr.replace(/\n/g, '\\n');
+            attr=attr.replace(/\r/g, '\\r');
+            var expr="obj." + attributeName + "='" + attr + "';";
+            eval(expr);
+        }
+        ;
+        var properties = serializedParams.split("&");
+        for ( var i = 0; i < properties.length; i++) {
+            evalThem(properties[i]);
+        }
+        ;
+        return obj;
+    }
+
+    /**
+     * 将形如param1=x1&param2=x2&obj.name=name的串转化为JSON
+     * {param1:x1,param2:x2,obj.name:name}}
+     */
+    function paramString2Param(serializedParams) {
+        var obj = {};
+        function evalThem(str) {
+            var attributeName = str.split("=")[0];
+            var attributeValue = str.split("=")[1];
+            if (!attributeValue) {
+                return;
+            }
+            //obj[attributeName] = decodeURI(attributeValue);
+            obj[attributeName]=decodeURIComponent(attributeValue.replace(/\+/g, '%20'));
+        }
+        ;
+        var properties = serializedParams.split("&");
+        for ( var i = 0; i < properties.length; i++) {
+            evalThem(properties[i]);
+        }
+        ;
+        return obj;
+    }
 
     /**
      * 通用异步form 提交
@@ -52,21 +177,20 @@ $(document).ready(function()
                     if(success)success(result);
                     else{
                         if (result.success){
-                            $.messager.alert({title: "成功",msg: result.msg,icon:'info'});
+                            $.messager.show({title: "成功",msg: result.msg});
                         } else {
-                            $.messager.alert({title: "错误",msg: result.msg,icon:'error'});
+                            $.messager.show({title: "错误",msg: result.msg});
                         }
                     }
 
                 } catch (e) {
                     try {
-                        var patt1 = /<p\s*class="lead"\s*>.*<\/p>/;
+                        var patt1 = /<h1\s*class="error"\s*>.*<\/h1>/;
                         var html  = patt1.exec(rs)+"";
                         var error = html.replace(/<\/?[^>]*>/g, "");
                     }catch (e){}
                     if(error==undefined||error=="null")error="不可预料的内部错误:"+e.message;
-                    //$.messager.show({title: "错误",msg: error});
-                    $.messager.alert('错误', error, 'error');
+                    $.messager.show({title: "错误",msg: error});
                 } finally{
                     if(complete)complete();
                     $.messager.progress("close");
@@ -104,9 +228,9 @@ $(document).ready(function()
                 if(success)success(result);
                 else{
                     if (result.success){
-                        $.messager.alert({title: "成功",msg: result.msg,icon:'info'});
+                        $.messager.show({title: "成功",msg: result.msg});
                     } else {
-                        $.messager.alert({title: "错误",msg: result.msg,icon:'error'});
+                        $.messager.show({title: "错误",msg: result.msg});
                     }
                 }
             },
@@ -118,8 +242,6 @@ $(document).ready(function()
             }
         });
     }
-
-
 
     /**
      * 自动登出
@@ -228,8 +350,11 @@ $(document).ready(function()
             }
         });
     }
-
-
+    /**
+     * ☆★★★★★注册函数到sys包为jQuery的静态方法★★★★★★★★★★★☆
+     *
+     * @e.g. $.sys.fmSubmit(fmSelector, url, callback);
+     */
     $.sys = {
         fmSubmit : fmSubmit,
         dgPost : dgPost,
@@ -238,4 +363,4 @@ $(document).ready(function()
         disableBackSpace : disableBackSpace,
         bindEnter : bindEnter
     };
-})(jQuery)
+})(jQuery);

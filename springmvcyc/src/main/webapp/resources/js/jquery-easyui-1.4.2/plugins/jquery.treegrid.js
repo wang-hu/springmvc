@@ -799,7 +799,7 @@ cc.push("<td field=\""+_db+"\" "+cls+" "+_de+">");
 var _de="";
 if(!col.checkbox){
 if(col.align){
-_de+="text-align:"+col.align+";";
+_de+="name-align:"+col.align+";";
 }
 if(!_da.nowrap){
 _de+="white-space:normal;height:auto;";

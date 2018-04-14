@@ -17,7 +17,7 @@
 (function($){
 	function init(target){
 		$(target).addClass('progressbar');
-		$(target).html('<div class="progressbar-text"></div><div class="progressbar-value"><div class="progressbar-text"></div></div>');
+		$(target).html('<div class="progressbar-name"></div><div class="progressbar-value"><div class="progressbar-name"></div></div>');
 		$(target).bind('_resize', function(e,force){
 			if ($(this).hasClass('easyui-fluid') || force){
 				setSize(target);
@@ -33,8 +33,8 @@
 		if (width) opts.width = width;
 		bar._size(opts);
 		
-		bar.find('div.progressbar-text').css('width', bar.width());
-		bar.find('div.progressbar-text,div.progressbar-value').css({
+		bar.find('div.progressbar-name').css('width', bar.width());
+		bar.find('div.progressbar-name,div.progressbar-value').css({
 			height: bar.height()+'px',
 			lineHeight: bar.height()+'px'
 		});
@@ -85,7 +85,7 @@
 				var oldValue = opts.value;
 				opts.value = value;
 				$(this).find('div.progressbar-value').width(value+'%');
-				$(this).find('div.progressbar-text').html(text);
+				$(this).find('div.progressbar-name').html(text);
 				if (oldValue != value){
 					opts.onChange.call(this, value, oldValue);
 				}

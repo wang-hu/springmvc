@@ -10,7 +10,7 @@
 (function($){
 function _1(_2){
 $(_2).addClass("progressbar");
-$(_2).html("<div class=\"progressbar-text\"></div><div class=\"progressbar-value\"><div class=\"progressbar-text\"></div></div>");
+$(_2).html("<div class=\"progressbar-name\"></div><div class=\"progressbar-value\"><div class=\"progressbar-name\"></div></div>");
 $(_2).bind("_resize",function(e,_3){
 if($(this).hasClass("easyui-fluid")||_3){
 _4(_2);
@@ -26,8 +26,8 @@ if(_6){
 _7.width=_6;
 }
 _8._size(_7);
-_8.find("div.progressbar-text").css("width",_8.width());
-_8.find("div.progressbar-text,div.progressbar-value").css({height:_8.height()+"px",lineHeight:_8.height()+"px"});
+_8.find("div.progressbar-name").css("width",_8.width());
+_8.find("div.progressbar-name,div.progressbar-value").css({height:_8.height()+"px",lineHeight:_8.height()+"px"});
 };
 $.fn.progressbar=function(_9,_a){
 if(typeof _9=="string"){
@@ -69,7 +69,7 @@ var _10=_f.text.replace(/{value}/,_e);
 var _11=_f.value;
 _f.value=_e;
 $(this).find("div.progressbar-value").width(_e+"%");
-$(this).find("div.progressbar-text").html(_10);
+$(this).find("div.progressbar-name").html(_10);
 if(_11!=_e){
 _f.onChange.call(this,_e,_11);
 }

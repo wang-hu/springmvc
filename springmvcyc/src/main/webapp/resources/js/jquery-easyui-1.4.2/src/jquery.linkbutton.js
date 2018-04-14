@@ -63,9 +63,9 @@
 		
 		var inner = $('<span class="l-btn-left"></span>').appendTo(t);
 		if (opts.text){
-			$('<span class="l-btn-text"></span>').html(opts.text).appendTo(inner);
+			$('<span class="l-btn-name"></span>').html(opts.text).appendTo(inner);
 		} else {
-			$('<span class="l-btn-text l-btn-empty">&nbsp;</span>').appendTo(inner);
+			$('<span class="l-btn-name l-btn-empty">&nbsp;</span>').appendTo(inner);
 		}
 		if (opts.iconCls){
 			$('<span class="l-btn-icon">&nbsp;</span>').addClass(opts.iconCls).appendTo(inner);

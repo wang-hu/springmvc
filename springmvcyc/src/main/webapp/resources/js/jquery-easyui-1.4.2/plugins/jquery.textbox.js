@@ -10,7 +10,7 @@
 (function($){
 function _1(_2){
 $(_2).addClass("textbox-f").hide();
-var _3=$("<span class=\"textbox\">"+"<input class=\"textbox-text\" autocomplete=\"off\">"+"<input type=\"hidden\" class=\"textbox-value\">"+"</span>").insertAfter(_2);
+var _3=$("<span class=\"textbox\">"+"<input class=\"textbox-name\" autocomplete=\"off\">"+"<input type=\"hidden\" class=\"textbox-value\">"+"</span>").insertAfter(_2);
 var _4=$(_2).attr("name");
 if(_4){
 _3.find("input.textbox-value").attr("name",_4);
@@ -22,11 +22,11 @@ function _5(_6){
 var _7=$.data(_6,"textbox");
 var _8=_7.options;
 var tb=_7.textbox;
-tb.find(".textbox-text").remove();
+tb.find(".textbox-name").remove();
 if(_8.multiline){
-$("<textarea class=\"textbox-text\" autocomplete=\"off\"></textarea>").prependTo(tb);
+$("<textarea class=\"textbox-name\" autocomplete=\"off\"></textarea>").prependTo(tb);
 }else{
-$("<input type=\""+_8.type+"\" class=\"textbox-text\" autocomplete=\"off\">").prependTo(tb);
+$("<input type=\""+_8.type+"\" class=\"textbox-name\" autocomplete=\"off\">").prependTo(tb);
 }
 tb.find(".textbox-addon").remove();
 var bb=_8.icons?$.extend(true,[],_8.icons):[];
@@ -50,7 +50,7 @@ _b(_6,_8.readonly);
 };
 function _c(_d){
 var tb=$.data(_d,"textbox").textbox;
-tb.find(".textbox-text").validatebox("destroy");
+tb.find(".textbox-name").validatebox("destroy");
 tb.remove();
 $(_d).remove();
 };
@@ -73,7 +73,7 @@ var _14=tb.is(":visible");
 if(!_14){
 tb.appendTo("body");
 }
-var _15=tb.find(".textbox-text");
+var _15=tb.find(".textbox-name");
 var btn=tb.find(".textbox-button");
 var _16=tb.find(".textbox-addon");
 var _17=_16.find(".textbox-icon");
@@ -126,7 +126,7 @@ function _20(_21){
 var _22=$.data(_21,"textbox");
 var _23=_22.options;
 var tb=_22.textbox;
-var _24=tb.find(".textbox-text");
+var _24=tb.find(".textbox-name");
 _24.attr("placeholder",_23.prompt);
 _24.unbind(".textbox");
 if(!_23.disabled&&!_23.readonly){
@@ -198,12 +198,12 @@ if(_2f){
 _31.disabled=true;
 $(_2e).attr("disabled","disabled");
 tb.addClass("textbox-disabled");
-tb.find(".textbox-text,.textbox-value").attr("disabled","disabled");
+tb.find(".textbox-name,.textbox-value").attr("disabled","disabled");
 }else{
 _31.disabled=false;
 tb.removeClass("textbox-disabled");
 $(_2e).removeAttr("disabled");
-tb.find(".textbox-text,.textbox-value").removeAttr("disabled");
+tb.find(".textbox-name,.textbox-value").removeAttr("disabled");
 }
 };
 function _b(_32,_33){
@@ -211,7 +211,7 @@ var _34=$.data(_32,"textbox");
 var _35=_34.options;
 _35.readonly=_33==undefined?true:_33;
 _34.textbox.removeClass("textbox-readonly").addClass(_35.readonly?"textbox-readonly":"");
-var _36=_34.textbox.find(".textbox-text");
+var _36=_34.textbox.find(".textbox-name");
 _36.removeAttr("readonly");
 if(_35.readonly||!_35.editable){
 _36.attr("readonly","readonly");
@@ -273,7 +273,7 @@ _20(this);
 _1b(this);
 });
 },textbox:function(jq){
-return $.data(jq[0],"textbox").textbox.find(".textbox-text");
+return $.data(jq[0],"textbox").textbox.find(".textbox-name");
 },button:function(jq){
 return $.data(jq[0],"textbox").textbox.find(".textbox-button");
 },destroy:function(jq){
@@ -360,7 +360,7 @@ return jq.data("textbox").textbox.find(".textbox-icon:eq("+_4c+")");
 var _4d=jq.data("textbox");
 var _4e=_4d.options;
 var tb=_4d.textbox;
-var _4f=tb.find(".textbox-text");
+var _4f=tb.find(".textbox-name");
 var _50=tb.find(".textbox-addon")._outerWidth();
 var _51=tb.find(".textbox-button")._outerWidth();
 if(_4e.tipPosition=="right"){

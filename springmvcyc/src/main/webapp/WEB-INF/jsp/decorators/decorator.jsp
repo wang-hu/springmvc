@@ -13,31 +13,34 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title><sitemesh:write property='title' /></title>
-    <script src="<spring:url value="/resources/js/jquery.min.js"/>"></script>
-    <link href="<spring:url value="/resources/css/default/bootstrap.min.css"/>"
-          rel="stylesheet">
-    <link href="<spring:url value="/resources/css/default/bootstrap-submenu.min.css"/>"
-          rel="stylesheet">
-    <link rel="stylesheet" type="text/css"
-          href="<spring:url value="/resources/css/default/style.css"/>">
-    <link rel="stylesheet" type="text/css"
-          href="<spring:url value="/resources/js/jquery-easyui-1.5.3/themes/default/easyui.css"/>">
-    <link rel="stylesheet" type="text/css"
-          href="<spring:url value="/resources/js/easyui-icons/icon.css"/>">
-    <link href="<spring:url value="/resources/css/default/multi-select.css"/>"
-          rel="stylesheet">
+    <link href="/resources/css/shop.css" type="text/css" rel="stylesheet" />
+    <link href="/resources/css/Sellerber.css" type="text/css"  rel="stylesheet" />
+    <link href="/resources/css/bkg_ui.css" type="text/css"  rel="stylesheet" />
+    <link href="/resources/font/css/font-awesome.min.css"  rel="stylesheet" type="text/css" />
+    <link href="/resources/js/easyui-icons/icon.css"  rel="stylesheet" type="text/css" />
     <sitemesh:write property='head'/>
 </head>
 <body>
     <sitemesh:write property='body' />
 </body>
-<script src="<spring:url value="/resources/js/bootstrap/bootstrap.min.js"/>"></script>
-<script src="<spring:url value="/resources/js/hack/ie10-viewport-bug-workaround.js"/>"></script>
-<script src="<spring:url value="/resources/js/jquery-easyui-1.5.3/jquery.easyui.min.js"/>"></script>
-<script src="<spring:url value="/resources/js/jquery-easyui-1.5.3/locale/easyui-lang-zh_CN.js"/>"></script>
-<script src="<spring:url value="/resources/js/jquery-easyui-1.5.3/easyloader.js"/>"></script>
-<script src="<spring:url value="/resources/js/jquery.multi-select.js"/>"></script>
-<script src="<spring:url value="/resources/js/moment.js"/>"></script>
-<script src="<spring:url value="/resources/js/sys.common.js"/>"></script>
-<sitemesh:write property='script' />
+<script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript" ></script>
+<script type="text/javascript" src="/resources/js/jquery.cookie.js"></script>
+<script src="/resources/js/Sellerber.js" type="text/javascript"></script>
+<script src="/resources/js/shopFrame.js" type="text/javascript"></script>
+<script src="/resources/js/dist/echarts.js" type="text/javascript"></script>
+<script src="/resources/js/jquery.nicescroll.js" type="text/javascript"></script>
+<link href="/resources/skin/default/skin.css" rel="stylesheet" type="text/css" id="skin" />
+<script src="/resources/js/layer/layer.js" type="text/javascript"></script>
+<script src="/resources/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/resources/js/laydate/laydate.js" type="text/javascript"></script>
+<script src="/resources/js/hsCheckData.js" type="text/javascript"></script>
+<script src="/resources/js/sys.common.js" type="text/javascript"></script>
+<script src="/resources/js/moment.js" type="text/javascript"></script>
+<script src="/resources/js/jquery-easyui-1.4.2/jquery.easyui.min.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="/resources/js/html5shiv.js" type="text/javascript"></script>
+<script src="/resources/js/respond.min.js"></script>
+<script src="/resources/js/css3-mediaqueries.js"  type="text/javascript"></script>
+<![endif]-->
 </html>
+<sitemesh:write property='myScript' />

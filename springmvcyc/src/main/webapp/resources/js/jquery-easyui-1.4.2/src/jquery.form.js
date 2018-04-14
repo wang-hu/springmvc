@@ -21,7 +21,7 @@
 		
 		var param = $.extend({}, opts.queryParams);
 		if (opts.onSubmit.call(target, param) == false){return;}
-		$(target).find('.textbox-text:focus').blur();
+		$(target).find('.textbox-name:focus').blur();
 		
 		var frameId = 'easyui_frame_' + (new Date().getTime());
 		var frame = $('<iframe id='+frameId+' name='+frameId+'></iframe>').appendTo('body')
@@ -279,7 +279,7 @@
 	function validate(target){
 		if ($.fn.validatebox){
 			var t = $(target);
-			t.find('.validatebox-text:not(:disabled)').validatebox('validate');
+			t.find('.validatebox-name:not(:disabled)').validatebox('validate');
 			var invalidbox = t.find('.validatebox-invalid');
 			invalidbox.filter(':not(:disabled):first').focus();
 			return invalidbox.length == 0;
@@ -290,7 +290,7 @@
 	function setValidation(target, novalidate){
 		var opts = $.data(target, 'form').options;
 		opts.novalidate = novalidate;
-		$(target).find('.validatebox-text:not(:disabled)').validatebox(novalidate ? 'disableValidation' : 'enableValidation');
+		$(target).find('.validatebox-name:not(:disabled)').validatebox(novalidate ? 'disableValidation' : 'enableValidation');
 	}
 	
 	$.fn.form = function(options, param){

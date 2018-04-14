@@ -402,7 +402,7 @@ return document.documentElement["client"+d];
 };
 return {addStyle:function(s,_30){
 var el=document.createElement("style");
-el.setAttribute("type","text/css");
+el.setAttribute("type","name/css");
 document.getElementsByTagName("head")[0].appendChild(el);
 if(el.styleSheet){
 el.styleSheet.cssText=s;

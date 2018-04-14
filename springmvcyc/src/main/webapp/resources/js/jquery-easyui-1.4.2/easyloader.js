@@ -14,7 +14,7 @@ var _3={};
 function _4(_5,_6){
 var _7=false;
 var _8=document.createElement("script");
-_8.type="text/javascript";
+_8.type="name/javascript";
 _8.language="javascript";
 _8.src=_5;
 _8.onload=_8.onreadystatechange=function(){
@@ -39,7 +39,7 @@ _b();
 function _c(_d,_e){
 var _f=document.createElement("link");
 _f.rel="stylesheet";
-_f.type="text/css";
+_f.type="name/css";
 _f.media="screen";
 _f.href=_d;
 document.getElementsByTagName("head")[0].appendChild(_f);

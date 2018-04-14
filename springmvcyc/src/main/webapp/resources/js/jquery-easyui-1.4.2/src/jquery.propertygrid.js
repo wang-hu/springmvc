@@ -138,7 +138,7 @@
 			table.push('<tr>');
 			if ((frozen && (opts.rownumbers || opts.frozenColumns.length)) ||
 					(!frozen && !(opts.rownumbers || opts.frozenColumns.length))){
-				table.push('<td style="border:0;text-align:center;width:25px"><span class="datagrid-row-expander datagrid-row-collapse" style="display:inline-block;width:16px;height:16px;cursor:pointer">&nbsp;</span></td>');
+				table.push('<td style="border:0;name-align:center;width:25px"><span class="datagrid-row-expander datagrid-row-collapse" style="display:inline-block;width:16px;height:16px;cursor:pointer">&nbsp;</span></td>');
 			}
 			table.push('<td style="border:0;">');
 			if (!frozen){

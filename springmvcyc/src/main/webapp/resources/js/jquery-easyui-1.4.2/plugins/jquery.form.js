@@ -15,7 +15,7 @@ var _5=$.extend({},_4.queryParams);
 if(_4.onSubmit.call(_2,_5)==false){
 return;
 }
-$(_2).find(".textbox-text:focus").blur();
+$(_2).find(".textbox-name:focus").blur();
 var _6="easyui_frame_"+(new Date().getTime());
 var _7=$("<iframe id="+_6+" name="+_6+"></iframe>").appendTo("body");
 _7.attr("src",window.ActiveXObject?"javascript:false":"about:blank");
@@ -244,7 +244,7 @@ $.data(_35,"form",{options:$.extend({},$.fn.form.defaults,$.fn.form.parseOptions
 function _38(_39){
 if($.fn.validatebox){
 var t=$(_39);
-t.find(".validatebox-text:not(:disabled)").validatebox("validate");
+t.find(".validatebox-name:not(:disabled)").validatebox("validate");
 var _3a=t.find(".validatebox-invalid");
 _3a.filter(":not(:disabled):first").focus();
 return _3a.length==0;
@@ -254,7 +254,7 @@ return true;
 function _33(_3b,_3c){
 var _3d=$.data(_3b,"form").options;
 _3d.novalidate=_3c;
-$(_3b).find(".validatebox-text:not(:disabled)").validatebox(_3c?"disableValidation":"enableValidation");
+$(_3b).find(".validatebox-name:not(:disabled)").validatebox(_3c?"disableValidation":"enableValidation");
 };
 $.fn.form=function(_3e,_3f){
 if(typeof _3e=="string"){

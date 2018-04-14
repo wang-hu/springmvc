@@ -66,7 +66,7 @@ if(!_d.hasClass("menu-sep")){
 _d[0].itemName=_e.name||"";
 _d[0].itemHref=_e.href||"";
 var _f=_d.addClass("menu-item").html();
-_d.empty().append($("<div class=\"menu-text\"></div>").html(_f));
+_d.empty().append($("<div class=\"menu-name\"></div>").html(_f));
 if(_e.iconCls){
 $("<div class=\"menu-icon\"></div>").addClass(_e.iconCls).appendTo(_d);
 }
@@ -94,13 +94,13 @@ var _17=_15.attr("style")||"";
 _15.css({display:"block",left:-10000,height:"auto",overflow:"hidden"});
 _15.find(".menu-item").each(function(){
 $(this)._outerHeight(_16.itemHeight);
-$(this).find(".menu-text").css({height:(_16.itemHeight-2)+"px",lineHeight:(_16.itemHeight-2)+"px"});
+$(this).find(".menu-name").css({height:(_16.itemHeight-2)+"px",lineHeight:(_16.itemHeight-2)+"px"});
 });
 _15.removeClass("menu-noline").addClass(_16.noline?"menu-noline":"");
 var _18=_15[0].originalWidth||"auto";
 if(isNaN(parseInt(_18))){
 _18=0;
-_15.find("div.menu-text").each(function(){
+_15.find("div.menu-name").each(function(){
 if(_18<$(this)._outerWidth()){
 _18=$(this)._outerWidth();
 }
@@ -339,7 +339,7 @@ if(_3f.separator){
 var _43=$("<div class=\"menu-sep\"></div>").appendTo(_41);
 }else{
 var _43=$("<div class=\"menu-item\"></div>").appendTo(_41);
-$("<div class=\"menu-text\"></div>").html(_3f.text).appendTo(_43);
+$("<div class=\"menu-name\"></div>").html(_3f.text).appendTo(_43);
 }
 if(_3f.iconCls){
 $("<div class=\"menu-icon\"></div>").addClass(_3f.iconCls).appendTo(_43);
@@ -438,7 +438,7 @@ _4f(this);
 });
 },setText:function(jq,_54){
 return jq.each(function(){
-$(_54.target).children("div.menu-text").html(_54.text);
+$(_54.target).children("div.menu-name").html(_54.text);
 });
 },setIcon:function(jq,_55){
 return jq.each(function(){
@@ -449,7 +449,7 @@ $("<div class=\"menu-icon\"></div>").addClass(_55.iconCls).appendTo(_55.target);
 });
 },getItem:function(jq,_56){
 var t=$(_56);
-var _57={target:_56,id:t.attr("id"),text:$.trim(t.children("div.menu-text").html()),disabled:t.hasClass("menu-item-disabled"),name:_56.itemName,href:_56.itemHref,onclick:_56.onclick};
+var _57={target:_56,id:t.attr("id"),text:$.trim(t.children("div.menu-name").html()),disabled:t.hasClass("menu-item-disabled"),name:_56.itemName,href:_56.itemHref,onclick:_56.onclick};
 var _58=t.children("div.menu-icon");
 if(_58.length){
 var cc=[];
