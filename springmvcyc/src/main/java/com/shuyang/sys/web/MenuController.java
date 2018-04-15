@@ -1,9 +1,7 @@
 package com.shuyang.sys.web;
 
-import com.alibaba.fastjson.JSONObject;
 import com.shuyang.sys.component.Msg;
 import com.shuyang.sys.domain.Menu;
-import com.shuyang.sys.domain.component.TreeNode;
 import com.shuyang.sys.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

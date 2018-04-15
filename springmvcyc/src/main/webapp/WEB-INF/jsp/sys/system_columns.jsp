@@ -24,7 +24,7 @@
                                     <li class="clearfix mb15">
                                         <label class="label_name col-xs-3 col-sm-3">栏目名称：</label><span
                                             class="Column_name col-xs-9">
-				<input name="text" type="text" id="form-field-1" class="col-xs-8 col-sm-8"></span>
+				<input name="name" type="text" id="form-field-1" class="col-xs-8 col-sm-8"></span>
                                     </li>
                                     <li class="clearfix mb15">
                                         <label class="label_name col-xs-3 col-sm-3">所属分类：</label><span
@@ -161,11 +161,11 @@
 
         function addMenu() {
             var name = $('#form-field-1').val();
-            if(text == null || text == '' || text == undefined)
+            if(name == null || name == '' || name == undefined)
                 return;
             var datafm = $('#fm').form2json();
             var pid = $('#cityDanXuan').attr('data-id');
-            datafm.parentId = parentId;
+            datafm.pid = pid;
             url = "addMenu";
             $.post(url, datafm, function (result) {
                 if (result.success) {

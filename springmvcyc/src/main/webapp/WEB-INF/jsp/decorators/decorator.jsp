@@ -17,6 +17,7 @@
     <link href="/resources/css/Sellerber.css" type="text/css"  rel="stylesheet" />
     <link href="/resources/css/bkg_ui.css" type="text/css"  rel="stylesheet" />
     <link href="/resources/font/css/font-awesome.min.css"  rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/resources/js/jquery-easyui-1.5.4.5/themes/default/easyui.css"/>
     <link href="/resources/js/easyui-icons/icon.css"  rel="stylesheet" type="text/css" />
     <sitemesh:write property='head'/>
 </head>
@@ -24,6 +25,8 @@
     <sitemesh:write property='body' />
 </body>
 <script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript" ></script>
+<script src="/resources/js/jquery-easyui-1.5.4.5/jquery.easyui.min.js" type="text/javascript"></script>
+<script src="/resources/js/jquery-easyui-1.5.4.5/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript" src="/resources/js/jquery.cookie.js"></script>
 <script src="/resources/js/Sellerber.js" type="text/javascript"></script>
 <script src="/resources/js/shopFrame.js" type="text/javascript"></script>
@@ -36,7 +39,6 @@
 <script src="/resources/js/hsCheckData.js" type="text/javascript"></script>
 <script src="/resources/js/sys.common.js" type="text/javascript"></script>
 <script src="/resources/js/moment.js" type="text/javascript"></script>
-<script src="/resources/js/jquery-easyui-1.4.2/jquery.easyui.min.js" type="text/javascript"></script>
 <!--[if lt IE 9]>
 <script src="/resources/js/html5shiv.js" type="text/javascript"></script>
 <script src="/resources/js/respond.min.js"></script>

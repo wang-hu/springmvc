@@ -34,6 +34,8 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public Msg insertMenu(Menu apply) {
+        if(apply.getPid() == null)
+            apply.setPid(0);
         int ret = menuMapper.insertMenu(apply);
         if(ret == 1)
             return msgFactory.successMsg("增加成功");

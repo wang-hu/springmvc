@@ -5,11 +5,6 @@
 <meta text="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>店铺管理</title>
 </head>
-<!--[if lt IE 9]>
-  <script src="/resources/js/html5shiv.js"></script>
-  <script src="/resources/js/respond.min.js"></script>
-  <script type="name/javascript" src="/resources/js/PIE/PIE_IE678.js"></script>
- <![endif]-->
 <body>
  <div class="Sellerber" id="Sellerber">
  <!--顶部-->
