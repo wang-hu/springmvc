@@ -15,7 +15,7 @@
     <title><sitemesh:write property='title' /></title>
     <link href="/resources/css/shop.css" type="text/css" rel="stylesheet" />
     <link href="/resources/css/Sellerber.css" type="text/css"  rel="stylesheet" />
-    <link href="/resources/css/bkg_ui.css" type="text/css"  rel="stylesheet" />
+    <%--<link href="/resources/css/bkg_ui.css" type="text/css"  rel="stylesheet" />--%>
     <link href="/resources/font/css/font-awesome.min.css"  rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/resources/js/jquery-easyui-1.5.4.5/themes/default/easyui.css"/>
     <link href="/resources/js/easyui-icons/icon.css"  rel="stylesheet" type="text/css" />

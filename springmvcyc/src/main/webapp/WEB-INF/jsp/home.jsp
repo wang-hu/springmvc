@@ -1,9 +1,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta text="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!DOCTYPE html>
+<html>
+<head>
+<%--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />--%>
+<%--<meta text="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">--%>
 <title>店铺管理</title>
+<link href="/resources/css/bkg_ui.css" type="text/css"  rel="stylesheet" />
 </head>
 <body>
  <div class="Sellerber" id="Sellerber">

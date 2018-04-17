@@ -4,23 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<%--<link href="/resources/css/shop.css" type="text/css" rel="stylesheet" />--%>
-<%--<link href="/resources/css/Sellerber.css" type="text/css"  rel="stylesheet" />--%>
-<%--<link href="/resources/css/bkg_ui.css" type="text/css"  rel="stylesheet" />--%>
-<%--<link href="/resources/font/css/font-awesome.min.css"  rel="stylesheet" type="text/css" />--%>
-<%--<script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript" ></script>--%>
-<%--<script type="text/javascript" src="/resources/js/jquery.cookie.js"></script>--%>
-<%--<script src="/resources/js/Sellerber.js" type="text/javascript"></script>--%>
-<%--<script src="/resources/js/shopFrame.js" type="text/javascript"></script>--%>
-<%--<script src="/resources/js/dist/echarts.js" type="text/javascript"></script>--%>
-<%--<script src="/resources/js/jquery.nicescroll.js" type="text/javascript"></script>--%>
-<%--<!--[if lt IE 9]>--%>
-<%--<script src="/resources/js/html5shiv.js" type="text/javascript"></script>--%>
-<%--<script src="/resources/js/respond.min.js"></script>--%>
-<%--<script src="/resources/js/css3-mediaqueries.js"  type="text/javascript"></script>--%>
-  <%--<![endif]-->--%>
+<link href="/resources/css/bkg_ui.css" type="text/css"  rel="stylesheet" />
 <title>首页</title>
 </head>
 

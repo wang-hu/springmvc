@@ -38,7 +38,7 @@
                            pagination:true,singleSelect:true" >
             <thead>
             <tr class="header">
-                <th data-options="field:'login_name',align:'center',width:50">登录名称</th>
+                <th data-options="field:'login_name',align:'center',width:100">登录名称</th>
                 <th data-options="field:'nick_name',align:'center',width:150">
                     显示名称
                 </th>
