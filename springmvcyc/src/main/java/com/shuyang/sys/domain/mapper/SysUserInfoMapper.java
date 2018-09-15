@@ -14,6 +14,8 @@ public interface SysUserInfoMapper {
 
     SysUserInfo getSysUserInfoByUserNameAndPassword(@Param("loginName") String loginName, @Param("password")String password);
 
+    SysUserInfo getSysUserInfoByUserName(String loginName);
+
     int updateByPrimaryKeySelective(SysUserInfo record);
 
     int updateByPrimaryKey(SysUserInfo record);

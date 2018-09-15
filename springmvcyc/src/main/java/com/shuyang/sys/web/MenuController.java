@@ -10,31 +10,31 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-@RequestMapping("/com/shuyang/sys/menu")
+@RequestMapping("/sys/menu")
 public class MenuController {
 
     @Autowired
     MenuService menuService;
 
-    @RequestMapping("/menu_init")
+    @RequestMapping("/menu_init.do")
     public String menu_init() {
         return "sys/system_columns";
     }
 
-    @RequestMapping("/addMenu")
+    @RequestMapping("/addMenu.do")
     public @ResponseBody Msg addMenu(Menu menu) {
         Msg msg = menuService.insertMenu(menu);
         return msg;
     }
 
-    @RequestMapping("listAllMenus")
+    @RequestMapping("listAllMenus.do")
     @ResponseBody
     public Msg listAllMenus() {
         Msg msg = menuService.listAllMenus();
         return msg;
     }
 
-    @RequestMapping("listLeftMenus")
+    @RequestMapping("listLeftMenus.do")
     @ResponseBody
     public Msg listLeftMenus(Integer id) {
         Msg msg = menuService.listMenuByParentId(id);

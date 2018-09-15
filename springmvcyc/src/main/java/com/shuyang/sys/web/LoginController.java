@@ -10,22 +10,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @create in 18-2-27 下午1:51
  */
 @Controller
-@RequestMapping("/com/shuyang/sys")
+@RequestMapping("/sys/login")
 public class LoginController {
 
     @Autowired
     LoginService loginService;
 
-    @RequestMapping("/login")
+    @RequestMapping("/login.do")
     public String login_init(String loginName,String password) {
 
         // loginService.getSysUserInfoByUserNameAndPassword(loginName,password);
 
-        return "home";
+        return "/home";
+    }
+
+    @RequestMapping("/403.do")
+    public String login_fail() {
+        // loginService.getSysUserInfoByUserNameAndPassword(loginName,password);
+        return "/403";
     }
 
 
-    @RequestMapping("/index")
+    @RequestMapping("/index.do")
     public String home_init(String loginName,String password) {
 
         // loginService.getSysUserInfoByUserNameAndPassword(loginName,password);

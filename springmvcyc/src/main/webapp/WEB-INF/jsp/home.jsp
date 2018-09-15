@@ -7,7 +7,7 @@
 <%--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />--%>
 <%--<meta text="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">--%>
 <title>店铺管理</title>
-<link href="/resources/css/bkg_ui.css" type="text/css"  rel="stylesheet" />
+<link href="/resources/css/bkg_ui.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
  <div class="Sellerber" id="Sellerber">
@@ -25,7 +25,7 @@
      </div>
    <div class="news l_f "><a href="#" class="fa fa-bell Notice prompt" id="promptbtn"></a><em>5</em></div>
      <div class="administrator l_f">
-       <img src="/resources/images/avatar.png"  width="36px"/><span class="user-info">欢迎你,超级管理员</span><i class="glyph-icon fa  fa-caret-down"></i>
+       <img src="/resources/images/avatar.png" width="36px"/><span class="user-info">欢迎你,超级管理员</span><i class="glyph-icon fa  fa-caret-down"></i>
        <ul class="dropdown-menu">
         <li><a href="#"><i class="fa fa-user"></i>个人信息</a></li>
         <li><a href="#"><i class="fa fa-cog"></i>系统设置</a></li>
@@ -87,7 +87,7 @@
   <!--具体内容-->  
   <div id="iframe_box" class="iframe_content">
   <div class="show_iframe index_home" id="show_iframe">
-       <iframe scrolling="yes" class="simei_iframe" frameborder="0" src="index" name="iframepage" data-href="index"></iframe>
+       <iframe scrolling="yes" class="simei_iframe" frameborder="0" src="/sys/login/index.do" name="iframepage" data-href="index"></iframe>
        </div>
       </div>
   </div>
@@ -127,7 +127,7 @@
     var url;
 //设置框架
  $(function() {
-     url = 'menu/listLeftMenus';
+     url = '/sys/menu/listLeftMenus.do';
      $.post(url, null, function (result) {
          if (result.success) {
              $("#Sellerber").frame({
