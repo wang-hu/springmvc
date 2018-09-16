@@ -17,4 +17,9 @@ public class SysUserInfoServiceImpl implements SysUserInfoService{
 
         return sysUserInfoMapper.getSysUserInfoByUserNameAndPassword(loginName, password);
     }
+
+    @Override
+    public SysUserInfo getSysUserInfoByUserName(String loginName) {
+        return sysUserInfoMapper.getSysUserInfoByUserName(loginName);
+    }
 }

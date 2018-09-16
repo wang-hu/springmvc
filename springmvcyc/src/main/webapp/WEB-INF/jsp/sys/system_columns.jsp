@@ -112,7 +112,7 @@
     <script type="text/javascript">
         var url;
         $(document).ready(function () {
-            url = 'listAllMenus';
+            url = '/sys/menu/listAllMenus.do';
             $.post(url, null, function (result) {
                 if (result.success) {
                     $('#cityDanXuan').hsCheckData({

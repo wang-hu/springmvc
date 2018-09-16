@@ -115,6 +115,7 @@
         }
     });
     $(document).ready(function () {
+
         $("input[type='name'],input").blur(function () {
             var $el = $(this);
             var $parent = $el.parent();

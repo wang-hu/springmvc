@@ -2,6 +2,7 @@ package com.shuyang.sys.service;
 
 
 import com.shuyang.sys.component.Msg;
+import com.shuyang.sys.component.pojo.UrlAuth;
 import com.shuyang.sys.domain.Menu;
 import com.shuyang.sys.domain.component.TreeNode;
 
@@ -13,4 +14,6 @@ public interface MenuService {
     Msg insertMenu(Menu apply);
 
     Msg listAllMenus();
+
+    List<UrlAuth> listAuthUrls();
 }

@@ -11,6 +11,7 @@
     <http pattern="/**/*.js" security="none"></http>
     <http pattern="/**/*.jpg" security="none"></http>
     <http pattern="/**/*.png" security="none"></http>
+    <http pattern="/**/resources/**" security="none"></http>
     <http pattern="/WEB-INF/jsp/403.jsp" security="none" />
     <http pattern="/WEB-INF/jsp/other.jsp" security="none" />
     <http use-expressions='true' entry-point-ref="myAuthenticationEntryPoint" access-denied-page="/WEB-INF/jsp/403.jsp">
@@ -24,7 +25,7 @@
                                  error-if-maximum-exceeded="false" />
         </session-management>
         <!--增加一个filter，这点与 Acegi是不一样的，不能修改默认的filter了， 这个filter位于FILTER_SECURITY_INTERCEPTOR之前 -->
-        <!-- 认证和授权 --><!-- 重写登陆认证的过滤器，使我们可以拿到任何参数  -->
+        <!-- 认证和授权 --><!-- 重写登陆认证的过滤器，使我们可以拿到任何参数  position表示替换掉Spring Security原来默认的登陆验证Filter-->
         <custom-filter ref="myAuthenticationFilter" position="FORM_LOGIN_FILTER"  />
         <custom-filter ref="myFilter" before="FILTER_SECURITY_INTERCEPTOR" />
     </http>
@@ -59,8 +60,9 @@
             class="com.shuyang.sys.security.MyAccessDecisionManager">
     </b:bean>
     <!--资源源数据定义，将所有的资源和权限对应关系建立起来，即定义某一资源可以被哪些角色访问 -->
-    <b:bean id="securityMetadataSource"
-            class="com.shuyang.sys.security.MyInvocationSecurityMetadataSource" />
+    <b:bean id="securityMetadataSource" class="com.shuyang.sys.security.MyInvocationSecurityMetadataSource" >
+        <b:constructor-arg ref="menuServiceImpl"></b:constructor-arg>
+    </b:bean>
 
 
     <!-- 登录验证器：用户有没有登录的资格 --><!-- 这个就是重写的认证过滤器 -->

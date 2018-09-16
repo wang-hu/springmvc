@@ -3,18 +3,15 @@
 <mapper namespace="com.shuyang.sys.domain.mapper.SysUserInfoMapper" >
   <resultMap id="BaseResultMap" type="com.shuyang.sys.domain.SysUserInfo" >
     <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="LOGIN_NAME" property="loginName" jdbcType="VARCHAR" />
     <result column="NICK_NAME" property="nickName" jdbcType="VARCHAR" />
     <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
     <result column="USER_CODE" property="userCode" jdbcType="VARCHAR" />
     <result column="USER_PASSWORD" property="userPassword" jdbcType="VARCHAR" />
     <result column="UNABLE_PASSWORD" property="unablePassword" jdbcType="VARCHAR" />
-    <result column="APPLY_DATE" property="applyDate" jdbcType="DATE" />
-    <result column="APPLY_USER_ID" property="applyUserId" jdbcType="VARCHAR" />
-    <result column="APPLY_USER_NAME" property="applyUserName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, NICK_NAME, USER_NAME, USER_CODE, USER_PASSWORD, UNABLE_PASSWORD, APPLY_DATE, 
-    APPLY_USER_ID, APPLY_USER_NAME
+    ID, LOGIN_NAME,NICK_NAME, USER_NAME, USER_CODE, USER_PASSWORD, UNABLE_PASSWORD
   </sql>
 
   <select id="getSysUserInfoByUserNameAndPassword" resultMap="BaseResultMap" parameterType="string">
@@ -30,6 +27,39 @@
     from T_SYS_USER
     where LOGIN_NAME=#{loginName,jdbcType=VARCHAR}
   </select>
+
+
+  <resultMap id="userAuthResultMap" type="com.shuyang.sys.component.pojo.UserAuth" >
+    <result column="LOGIN_NAME" property="loginName" jdbcType="VARCHAR" />
+    <result column="USER_PASSWORD" property="userPassword" jdbcType="VARCHAR" />
+    <result column="AUTHORITY" property="authority" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="listUserAuthorities" parameterType="string" resultMap="userAuthResultMap">
+    SELECT a.login_name,a.user_password,b.authority FROM t_sys_user a, t_sys_authority b, t_sys_user_auth c
+    WHERE a.id=c.user_id and b.id=c.auth_id AND a.login_name=#{loginName,jdbcType=VARCHAR}
+  </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

@@ -1,5 +1,6 @@
 package com.shuyang.sys.security;
 
+import com.shuyang.sys.component.pojo.UserAuth;
 import com.shuyang.sys.domain.SysUserInfo;
 import com.shuyang.sys.domain.mapper.SysUserInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +10,13 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
+@Service
 public class MyUserDetailServiceImpl implements UserDetailsService {
 
 
@@ -24,23 +28,18 @@ public class MyUserDetailServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 
-        SysUserInfo users = sysUserInfoMapper.getSysUserInfoByUserName(userName);
-        if(users == null) {
-            throw new UsernameNotFoundException(userName);
+        SysUserInfo sysUserInfo = sysUserInfoMapper.getSysUserInfoByUserName(userName);
+
+        Collection<GrantedAuthority> userAuths = new ArrayList<>();
+
+        List<UserAuth> userAuthList = sysUserInfoMapper.listUserAuthorities(userName);
+
+        for (UserAuth auth : userAuthList) {
+            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(auth.getAuthority());
+            userAuths.add(grantedAuthority);
         }
 
-        Collection<GrantedAuthority> auths = new ArrayList<>();
-
-        GrantedAuthority auth2 = new SimpleGrantedAuthority("ROLE_ADMIN");
-        GrantedAuthority auth1 = new SimpleGrantedAuthority("ROLE_USER");
-
-        if (userName.equals("wanghu")) {
-            auths = new ArrayList<>();
-            auths.add(auth1);
-            auths.add(auth2);
-        }
-
-        User user = new User(userName, "123", true, true, true, true, auths);
+        User user = new User(userName, sysUserInfo.getUserPassword(), true, true, true, true, userAuths);
         return user;
     }
 }

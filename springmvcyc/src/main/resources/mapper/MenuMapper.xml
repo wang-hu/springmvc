@@ -70,4 +70,13 @@
       checked = #{checked,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+
+
+
+
+  <select id="listAuthUrls" resultType="com.shuyang.sys.component.pojo.UrlAuth">
+    SELECT a.url,c.authority FROM t_sys_menu a, t_sys_menu_auth b,t_sys_authority c
+    WHERE a.id=b.menu_id AND b.auth_id=c.id
+  </select>
+
 </mapper>

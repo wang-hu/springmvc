@@ -23,7 +23,4 @@ public class SysUserInfo {
     private String userCode;
     private String userPassword;
     private String unablePassword;
-    private Date applyDate;
-    private String applyUserId;
-    private String applyUserName;
 }

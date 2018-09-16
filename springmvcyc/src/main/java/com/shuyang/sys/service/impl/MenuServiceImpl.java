@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.shuyang.sys.component.Msg;
 import com.shuyang.sys.component.MsgFactory;
+import com.shuyang.sys.component.pojo.UrlAuth;
 import com.shuyang.sys.domain.component.TreeNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,6 +50,11 @@ public class MenuServiceImpl implements MenuService {
         List<TreeNode> treeNodeList = new ArrayList<>();
         JSONArray jsonArray = JSONObject.parseArray(toJsonString(getAllMenus(menuList, treeNodeList)));
         return msgFactory.successMsg("success",jsonArray);
+    }
+
+    @Override
+    public List<UrlAuth> listAuthUrls() {
+        return menuMapper.listAuthUrls();
     }
 
     private String toJsonString(List<TreeNode> treeNodeList) {

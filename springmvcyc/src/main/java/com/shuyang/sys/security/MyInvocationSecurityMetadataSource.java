@@ -1,5 +1,9 @@
 package com.shuyang.sys.security;
 
+import com.shuyang.sys.component.pojo.UrlAuth;
+import com.shuyang.sys.domain.mapper.MenuMapper;
+import com.shuyang.sys.service.MenuService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.FilterInvocation;
@@ -9,23 +13,34 @@ import java.util.*;
 
 public class MyInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
+    private MenuService menuService;
+
     private static Map<String, Collection<ConfigAttribute>> resourceMap = null;
 
     //tomcat启动时实例化一次
-    public MyInvocationSecurityMetadataSource() {
+    public MyInvocationSecurityMetadataSource(MenuService menuService) {
+        this.menuService = menuService;
         loadResourceDefine();
     }
     //tomcat开启时加载一次，加载所有url和权限（或角色）的对应关系
     private void loadResourceDefine() {
         resourceMap = new HashMap<>();
-        Collection<ConfigAttribute> atts = new ArrayList<>();
-        ConfigAttribute ca = new SecurityConfig("ROLE_USER");
-        atts.add(ca);
-        resourceMap.put("/sys/login/login.do", atts);
-        Collection<ConfigAttribute> attsno =new ArrayList<>();
-        ConfigAttribute cano = new SecurityConfig("ROLE_NO");
-        attsno.add(cano);
-        resourceMap.put("/other.jsp", attsno);
+        Set<String> url = new HashSet<>();
+        List<UrlAuth> authUrls = menuService.listAuthUrls();
+        for (UrlAuth urlAuth : authUrls) {
+            url.add(urlAuth.getUrl());
+        }
+
+        for (String string : url) {
+            Collection<ConfigAttribute> configAttributes = new HashSet<>();
+            for (UrlAuth urlAuth : authUrls) {
+                if (string.equals(urlAuth.getUrl())) {
+                    ConfigAttribute configAttribute = new SecurityConfig(urlAuth.getAuthority());
+                    configAttributes.add(configAttribute);
+                }
+            }
+            resourceMap.put(string, configAttributes);
+        }
     }
 
     //参数是要访问的url，返回这个url对于的所有权限（或角色）
