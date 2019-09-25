@@ -50,7 +50,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>4.3.18</version>
+            <version>4.3.18.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -114,7 +114,7 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>4.1.5</version>
+            <version>4.1.5.RELEASE</version>
         </dependency>
 
         <!-- 添加mybatis依赖 -->
@@ -148,7 +148,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.31</version>
+            <version>1.2.60</version>
         </dependency>
 
         <!-- 添加日志相关jar包 -->
