@@ -33,7 +33,9 @@
             <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
             <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
                 <property name="supportedMediaTypes">
-                    <value>*/*</value>
+                    <list>
+                        <value>application/json</value>
+                    </list>
                 </property>
             </bean>
         </mvc:message-converters>
