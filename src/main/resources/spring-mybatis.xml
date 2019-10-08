@@ -12,11 +12,13 @@
     <!-- 自动扫描 -->
     <context:component-scan base-package="com.shuyang"/>
 
-    <!-- 第一种方式：加载一个properties文件 -->
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:config.properties"/>
-    </bean>
+    <!--加载连接池属性文件-->
+    <context:property-placeholder location="classpath:config.properties"/>
 
+    <!-- 第一种方式：加载一个properties文件 -->
+    <!--<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+        <!--<property name="location" value="classpath:config.properties"/>-->
+    <!--</bean>-->
 
     <!-- 第二种方式：加载多个properties文件
     <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
