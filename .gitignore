@@ -7,5 +7,4 @@
 *.iml
 out
 gen
-/target/
 /logs/
